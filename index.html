@@ -1,496 +1,564 @@
 <!DOCTYPE html>
 <html lang="ja" data-lang="ja" data-theme="light">
 <head>
+  <script>!function(){var t=localStorage.getItem('ssl-theme')||'light',l=localStorage.getItem('ssl-lang')||'ja';document.documentElement.setAttribute('data-theme',t);document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l;}();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SS LINE | 株式会社エスエスライン</title>
-  <meta name="description" content="物流のプロとして、安心・安全・確実の精神で運送事業に取り組んでおります。" />
+  <meta name="description" content="物流のプロとして、安心・安全・確実の精神で運送事業に取り組んでおります。千葉県佐倉市を拠点に関東全域へ対応。" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a3d2e'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%234ade9a' font-size='18' font-weight='900' font-family='sans-serif'>S</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="dns-prefetch" href="https://unpkg.com" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1600&q=80&auto=format&fit=crop" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/@tabler/icons-webfont/dist/tabler-icons.min.css" />
   <style>
 /* ── RESET ──────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: system-ui, -apple-system, 'Segoe UI', 'Hiragino Kaku Gothic Pro',
-               'Meiryo', 'Noto Sans JP', sans-serif;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  background: var(--bg);
-  color: var(--t1);
-  transition: background-color 0.3s ease, color 0.3s ease;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans JP',system-ui,-apple-system,'Segoe UI','Hiragino Kaku Gothic Pro','Meiryo',sans-serif;
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background:var(--bg);color:var(--t1);
+  transition:background-color .3s ease,color .3s ease;
 }
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
-button { font-family: inherit; cursor: pointer; background: none; border: none; padding: 0; }
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer;background:none;border:none;padding:0}
+:focus-visible{outline:2px solid var(--mint);outline-offset:3px;border-radius:2px}
 
-/* ── BRAND TOKENS (never change) ───────────────────────── */
-:root {
-  --gd:    #0a3d2e;
-  --gm:    #0f5c42;
-  --gk:    #071f17;
-  --mint:  #4ade9a;
-  --mintd: #2bc97a;
-  --bw:    0.5px;
-  --ease:  0.2s ease;
-  --r:     4px;
-  --nav-h: 64px;
+/* ── SKIP LINK ───────────────────────────────────────────── */
+.skip-link{
+  position:absolute;top:-100%;left:1rem;z-index:9999;
+  background:var(--mint);color:var(--gd);font-weight:700;font-size:.875rem;
+  padding:.5rem 1rem;border-radius:0 0 4px 4px;
+  transition:top .2s ease;
 }
+.skip-link:focus{top:0}
 
-/* ── LIGHT THEME (default) ──────────────────────────────── */
-:root {
-  --bg:       #ffffff;
-  --bg-alt:   #f6f8f6;
-  --brd:      rgba(0,0,0,0.09);
-  --t1:       #0f1a0f;
-  --t2:       #3d4d3d;
-  --t3:       #7a8a7a;
-  --cat-bg:   rgba(10,61,46,0.08);
-  --cat-c:    #0f5c42;
-  --ni-hov:   rgba(10,61,46,0.03);
-  --ey-c:     #0f5c42;
-  --ol-brd:   #0f5c42;
-  --ol-c:     #0f5c42;
-  --ol-hbg:   #0f5c42;
-  --ol-hc:    #ffffff;
+/* ── BRAND TOKENS ────────────────────────────────────────── */
+:root{
+  --gd:#0a3d2e;--gm:#0f5c42;--gk:#071f17;
+  --mint:#4ade9a;--mintd:#2bc97a;
+  --bw:1px;--ease:.2s ease;--r:4px;--nav-h:64px;
 }
-
-/* ── DARK THEME ─────────────────────────────────────────── */
-[data-theme="dark"] {
-  --bg:       #0b1a0e;
-  --bg-alt:   #091408;
-  --brd:      rgba(74,222,154,0.12);
-  --t1:       #d4e8cc;
-  --t2:       #7ba87e;
-  --t3:       #4d7252;
-  --cat-bg:   rgba(74,222,154,0.1);
-  --cat-c:    var(--mint);
-  --ni-hov:   rgba(74,222,154,0.05);
-  --ey-c:     var(--mint);
-  --ol-brd:   var(--mint);
-  --ol-c:     var(--mint);
-  --ol-hbg:   var(--mint);
-  --ol-hc:    var(--gd);
+/* ── LIGHT THEME ─────────────────────────────────────────── */
+:root{
+  --bg:#ffffff;--bg-alt:#f4f7f5;
+  --brd:rgba(0,0,0,0.09);
+  --t1:#0f1a0f;--t2:#3a4d3a;--t3:#617361;
+  --cat-bg:rgba(10,61,46,0.08);--cat-c:#0f5c42;
+  --ni-hov:rgba(10,61,46,0.03);
+  --ey-c:#0f5c42;--ol-brd:#0f5c42;--ol-c:#0f5c42;--ol-hbg:#0f5c42;--ol-hc:#fff;
 }
-
-/* ── LANGUAGE SHOW / HIDE ───────────────────────────────── */
-html[data-lang="en"] .lang-jp { display: none !important; }
-html[data-lang="ja"] .lang-en { display: none !important; }
-
-/* ── LAYOUT ─────────────────────────────────────────────── */
-.wrap { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-section, div[id] { scroll-margin-top: var(--nav-h); }
+/* ── DARK THEME ──────────────────────────────────────────── */
+[data-theme="dark"]{
+  --bg:#0b1a0e;--bg-alt:#091408;
+  --brd:rgba(74,222,154,0.12);
+  --t1:#d4e8cc;--t2:#7ba87e;--t3:#71917a;
+  --cat-bg:rgba(74,222,154,0.1);--cat-c:var(--mint);
+  --ni-hov:rgba(74,222,154,0.05);
+  --ey-c:var(--mint);--ol-brd:var(--mint);--ol-c:var(--mint);--ol-hbg:var(--mint);--ol-hc:var(--gd);
+}
+/* ── LANGUAGE ────────────────────────────────────────────── */
+html[data-lang="en"] .lang-jp{display:none!important}
+html[data-lang="ja"] .lang-en{display:none!important}
+/* ── LAYOUT ──────────────────────────────────────────────── */
+.wrap{max-width:1200px;margin:0 auto;padding:0 2rem}
+section,[id]{scroll-margin-top:var(--nav-h)}
+/* ── SCROLL ANIMATIONS ───────────────────────────────────── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.in-view{opacity:1;transform:translateY(0)}
+.fade-up:nth-child(2){transition-delay:.08s}
+.fade-up:nth-child(3){transition-delay:.16s}
+.fade-up:nth-child(4){transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){
+  .fade-up{opacity:1;transform:none;transition:none}
+  .slide-bg{animation:none!important}
+}
 
 /* ═══════════════════════════════════════════════════════════
    NAVBAR
 ═══════════════════════════════════════════════════════════ */
-#nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: var(--gd);
-  height: var(--nav-h);
-  border-bottom: var(--bw) solid rgba(74,222,154,0.14);
-  transition: box-shadow var(--ease);
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:var(--gd);height:var(--nav-h);
+  border-bottom:var(--bw) solid rgba(74,222,154,0.14);
+  transition:background .35s ease,box-shadow .35s ease,backdrop-filter .35s ease;
 }
-#nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.4); }
-
-.nav-wrap { display: flex; align-items: center; height: var(--nav-h); gap: 0.5rem; }
-
-.nav-logo { display: flex; flex-direction: column; line-height: 1.15; flex-shrink: 0; }
-.nav-logo-en { font-size: 1.125rem; font-weight: 900; color: var(--mint); letter-spacing: 0.06em; }
-.nav-logo-jp { font-size: 0.525rem; color: rgba(74,222,154,0.48); font-weight: 500; margin-top: 1px; }
-
-.nav-list {
-  display: flex; align-items: stretch;
-  margin-left: auto; height: var(--nav-h);
+#nav.scrolled{
+  background:rgba(10,61,46,.88);
+  backdrop-filter:blur(18px) saturate(180%);
+  -webkit-backdrop-filter:blur(18px) saturate(180%);
+  box-shadow:0 2px 32px rgba(0,0,0,.45);
 }
-.nav-item { position: relative; display: flex; align-items: stretch; }
-.nav-item > a {
-  display: flex; align-items: center; gap: 0.2rem;
-  padding: 0 0.6rem;
-  font-size: 0.77rem; font-weight: 500;
-  color: rgba(255,255,255,0.72); white-space: nowrap;
-  transition: color var(--ease), background var(--ease);
+.nav-wrap{display:flex;align-items:center;height:var(--nav-h);gap:.5rem}
+.nav-logo{display:flex;flex-direction:column;line-height:1.15;flex-shrink:0}
+.nav-logo-en{font-size:1.125rem;font-weight:900;color:var(--mint);letter-spacing:.06em}
+.nav-logo-jp{font-size:.525rem;color:rgba(74,222,154,.48);font-weight:500;margin-top:1px}
+.nav-list{display:flex;align-items:stretch;margin-left:auto;height:var(--nav-h)}
+.nav-item{position:relative;display:flex;align-items:stretch}
+.nav-item>a{
+  display:flex;align-items:center;gap:.2rem;
+  padding:0 .6rem;font-size:.77rem;font-weight:500;
+  color:rgba(255,255,255,.72);white-space:nowrap;
+  transition:color var(--ease),background var(--ease);
 }
-.nav-item > a:hover { color: var(--mint); background: rgba(74,222,154,0.07); }
-.nav-item > a .ti { font-size: 0.67rem; margin-top: 1px; flex-shrink: 0; }
-
-/* Dropdown */
-.dd {
-  position: absolute; top: 100%; left: 0;
-  background: var(--gk); min-width: 190px;
-  border: var(--bw) solid rgba(74,222,154,0.15); border-top: none;
-  padding: 0.375rem 0;
-  opacity: 0; visibility: hidden; transform: translateY(-4px);
-  transition: opacity 0.17s ease, transform 0.17s ease, visibility 0.17s ease;
-  z-index: 200; pointer-events: none;
+.nav-item>a:hover,.nav-item>a:focus-visible{color:var(--mint);background:rgba(74,222,154,.07)}
+.nav-item>a .ti{font-size:.67rem;margin-top:1px;flex-shrink:0}
+.dd{
+  position:absolute;top:100%;left:0;
+  background:var(--gk);min-width:200px;
+  border:var(--bw) solid rgba(74,222,154,.15);border-top:none;
+  padding:.375rem 0;opacity:0;visibility:hidden;
+  transform:translateY(-6px);pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease,visibility .18s ease;
+  z-index:200;
 }
-.nav-item:hover .dd, .nav-item.open .dd {
-  opacity: 1; visibility: visible; transform: translateY(0); pointer-events: all;
+.nav-item:hover .dd,.nav-item.open .dd{opacity:1;visibility:visible;transform:translateY(0);pointer-events:all}
+.dd a{
+  display:block;padding:.55rem 1.125rem;
+  font-size:.8rem;color:rgba(255,255,255,.65);white-space:nowrap;
+  transition:color var(--ease),background var(--ease);
 }
-.dd a {
-  display: block; padding: 0.55rem 1.125rem;
-  font-size: 0.8rem; color: rgba(255,255,255,0.65); white-space: nowrap;
-  transition: color var(--ease), background var(--ease);
+.dd a:hover{color:var(--mint);background:rgba(74,222,154,.06)}
+.nav-right{display:flex;align-items:center;gap:.375rem;flex-shrink:0;padding-left:.5rem}
+.nav-ctl{display:flex;align-items:center;gap:.25rem}
+.ctl{
+  display:flex;align-items:center;justify-content:center;
+  height:28px;min-width:32px;padding:0 .5rem;
+  border:var(--bw) solid rgba(74,222,154,.28);border-radius:var(--r);
+  color:rgba(74,222,154,.65);font-size:.75rem;font-weight:700;letter-spacing:.04em;
+  transition:color var(--ease),border-color var(--ease),background var(--ease);
 }
-.dd a:hover { color: var(--mint); background: rgba(74,222,154,0.06); }
-
-/* Right cluster: controls + hamburger */
-.nav-right { display: flex; align-items: center; gap: 0.375rem; flex-shrink: 0; padding-left: 0.5rem; }
-.nav-ctl   { display: flex; align-items: center; gap: 0.25rem; }
-
-.ctl {
-  display: flex; align-items: center; justify-content: center;
-  height: 28px; min-width: 32px; padding: 0 0.5rem;
-  border: var(--bw) solid rgba(74,222,154,0.28); border-radius: var(--r);
-  color: rgba(74,222,154,0.65);
-  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
-  transition: color var(--ease), border-color var(--ease), background var(--ease);
+.ctl:hover,.ctl:focus-visible{color:var(--mint);border-color:rgba(74,222,154,.5);background:rgba(74,222,154,.08)}
+.ctl .ti{font-size:.9rem}
+.hbtn{
+  display:none;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.8);font-size:1.375rem;
+  padding:.375rem;border-radius:var(--r);
+  transition:color var(--ease);
 }
-.ctl:hover { color: var(--mint); border-color: rgba(74,222,154,0.5); background: rgba(74,222,154,0.08); }
-.ctl .ti { font-size: 0.9rem; }
-
-.hbtn {
-  display: none; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.8); font-size: 1.375rem;
-  padding: 0.375rem; border-radius: var(--r);
-  transition: color var(--ease);
-}
-.hbtn:hover { color: var(--mint); }
+.hbtn:hover{color:var(--mint)}
 
 /* ── MOBILE NAV ─────────────────────────────────────────── */
-#mnav {
-  display: none;
-  position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 999;
-  background: var(--gd);
-  border-top: var(--bw) solid rgba(74,222,154,0.14);
-  max-height: calc(100vh - var(--nav-h)); overflow-y: auto;
-  opacity: 0; transform: translateY(-6px); pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+#mnav{
+  display:none;position:fixed;top:var(--nav-h);left:0;right:0;z-index:999;
+  background:var(--gd);border-top:var(--bw) solid rgba(74,222,154,.14);
+  max-height:calc(100vh - var(--nav-h));overflow-y:auto;
+  opacity:0;transform:translateY(-6px);pointer-events:none;
+  transition:opacity .2s ease,transform .2s ease;
 }
-#mnav.show { opacity: 1; transform: translateY(0); pointer-events: all; }
-
-.mi > a {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0.875rem 1.5rem;
-  font-size: 0.9375rem; font-weight: 500;
-  color: rgba(255,255,255,0.78);
-  border-bottom: var(--bw) solid rgba(74,222,154,0.1);
-  transition: color var(--ease), background var(--ease);
+#mnav.show{opacity:1;transform:translateY(0);pointer-events:all}
+.mi>a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.875rem 1.5rem;font-size:.9375rem;font-weight:500;
+  color:rgba(255,255,255,.78);
+  border-bottom:var(--bw) solid rgba(74,222,154,.1);
+  transition:color var(--ease),background var(--ease);
 }
-.mi > a:hover { color: var(--mint); background: rgba(74,222,154,0.05); }
-.mi > a .ti { font-size: 0.8rem; color: rgba(74,222,154,0.45); transition: transform 0.2s; flex-shrink: 0; }
-.mi.open > a .ti { transform: rotate(90deg); }
-
-.mdd { display: none; background: rgba(0,0,0,0.22); }
-.mdd.show { display: block; }
-.mdd a {
-  display: block; padding: 0.625rem 2rem;
-  font-size: 0.875rem; color: rgba(255,255,255,0.52);
-  border-bottom: var(--bw) solid rgba(74,222,154,0.07);
-  transition: color var(--ease);
+.mi>a:hover{color:var(--mint);background:rgba(74,222,154,.05)}
+.mi>a .ti{font-size:.8rem;color:rgba(74,222,154,.45);transition:transform .2s;flex-shrink:0}
+.mi.open>a .ti{transform:rotate(90deg)}
+.mdd{display:none;background:rgba(0,0,0,.22)}
+.mdd.show{display:block}
+.mdd a{
+  display:block;padding:.625rem 2rem;
+  font-size:.875rem;color:rgba(255,255,255,.52);
+  border-bottom:var(--bw) solid rgba(74,222,154,.07);
+  transition:color var(--ease);
 }
-.mdd a:hover { color: var(--mint); }
+.mdd a:hover{color:var(--mint)}
 
 /* ═══════════════════════════════════════════════════════════
    HERO CAROUSEL
 ═══════════════════════════════════════════════════════════ */
-#hero { position: relative; height: 100vh; min-height: 520px; overflow: hidden; }
-.carousel { position: absolute; inset: 0; }
-
-.slide {
-  position: absolute; inset: 0;
-  background: var(--gd);
-  display: flex; align-items: center;
-  padding-top: var(--nav-h);
-  opacity: 0; transition: opacity 0.75s ease; pointer-events: none;
+#hero{position:relative;height:100vh;min-height:540px;overflow:hidden}
+.carousel{position:absolute;inset:0}
+.slide{
+  position:absolute;inset:0;overflow:hidden;
+  display:flex;align-items:center;padding-top:var(--nav-h);
+  opacity:0;transition:opacity .75s ease;pointer-events:none;
 }
-.slide.active { opacity: 1; pointer-events: all; }
-.slide::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
+.slide.active{opacity:1;pointer-events:all}
+/* Ken Burns layer */
+.slide-bg{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  transform-origin:center;will-change:transform;
+  transform:scale(1.0);transition:transform .75s ease;
+}
+@keyframes kb{from{transform:scale(1.0)}to{transform:scale(1.09)}}
+.slide.active .slide-bg{animation:kb 7s ease-out forwards;transition:none}
+/* Grid overlay */
+.slide-grid{
+  position:absolute;inset:0;pointer-events:none;
   background-image:
-    linear-gradient(rgba(74,222,154,0.024) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(74,222,154,0.024) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(74,222,154,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(74,222,154,.022) 1px,transparent 1px);
+  background-size:60px 60px;
 }
-.slide::after {
-  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-  width: 4px; background: var(--mint);
+.slide::after{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--mint)}
+.slide-body{position:relative;z-index:1}
+.slide-pill{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.3rem .9rem;
+  border:var(--bw) solid rgba(74,222,154,.35);border-radius:100px;
+  font-size:.7rem;font-weight:700;color:var(--mint);
+  text-transform:uppercase;letter-spacing:.07em;margin-bottom:1.625rem;
 }
-.slide-body { position: relative; z-index: 1; }
-
-.slide-pill {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  padding: 0.3rem 0.9rem;
-  border: var(--bw) solid rgba(74,222,154,0.35); border-radius: 100px;
-  font-size: 0.7rem; font-weight: 700; color: var(--mint);
-  text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 1.625rem;
+.slide-h1{
+  font-size:clamp(2.25rem,5.5vw,4.5rem);
+  font-weight:900;line-height:1.04;letter-spacing:-.04em;color:#fff;margin-bottom:1.125rem;
 }
-.slide-h1 {
-  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
-  font-weight: 900; line-height: 1.04;
-  letter-spacing: -0.04em; color: #fff; margin-bottom: 1.125rem;
+.slide-h1 .m{color:var(--mint)}
+.slide-p{font-size:clamp(.9375rem,1.8vw,1.0625rem);color:rgba(255,255,255,.6);line-height:1.75;max-width:540px}
+.slide-cta{
+  display:inline-flex;align-items:center;gap:.4rem;
+  margin-top:2rem;padding:.75rem 1.75rem;
+  background:var(--mint);color:var(--gd);
+  font-size:.9375rem;font-weight:700;border-radius:var(--r);
+  transition:background var(--ease),transform var(--ease);
 }
-.slide-h1 .m { color: var(--mint); }
-.slide-p { font-size: clamp(0.9375rem,1.8vw,1.0625rem); color: rgba(255,255,255,0.58); line-height: 1.75; max-width: 520px; }
-.slide-cta {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  margin-top: 2rem; padding: 0.75rem 1.75rem;
-  background: var(--mint); color: var(--gd);
-  font-size: 0.9375rem; font-weight: 700; border-radius: var(--r);
-  transition: background var(--ease), transform var(--ease);
+.slide-cta:hover{background:var(--mintd);transform:translateY(-2px)}
+.c-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:10;
+  padding:.625rem;color:rgba(255,255,255,.45);font-size:1.25rem;
+  border:var(--bw) solid rgba(255,255,255,.18);border-radius:var(--r);
+  transition:color var(--ease),border-color var(--ease),background var(--ease);
 }
-.slide-cta:hover { background: var(--mintd); transform: translateY(-1px); }
-
-.c-arrow {
-  position: absolute; top: 50%; transform: translateY(-50%); z-index: 10;
-  padding: 0.625rem; color: rgba(255,255,255,0.45); font-size: 1.25rem;
-  border: var(--bw) solid rgba(255,255,255,0.18); border-radius: var(--r);
-  transition: color var(--ease), border-color var(--ease), background var(--ease);
+.c-arrow:hover{color:var(--mint);border-color:rgba(74,222,154,.4);background:rgba(74,222,154,.07)}
+.c-prev{left:1.25rem}.c-next{right:1.25rem}
+.c-dots{
+  position:absolute;bottom:1.75rem;left:50%;transform:translateX(-50%);
+  display:flex;gap:.5rem;z-index:10;
 }
-.c-arrow:hover { color: var(--mint); border-color: rgba(74,222,154,0.4); background: rgba(74,222,154,0.07); }
-.c-prev { left: 1.25rem; }
-.c-next { right: 1.25rem; }
-
-.c-dots {
-  position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 0.5rem; z-index: 10;
+.c-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,.3);
+  transition:background var(--ease),transform var(--ease);
 }
-.c-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: rgba(255,255,255,0.3);
-  transition: background var(--ease), transform var(--ease);
-}
-.c-dot.on { background: var(--mint); transform: scale(1.3); }
+.c-dot.on{background:var(--mint);transform:scale(1.35)}
 
 /* ═══════════════════════════════════════════════════════════
    INTRO STRIP
 ═══════════════════════════════════════════════════════════ */
-#intro {
-  background: var(--gm); padding: 2rem 0;
-  border-top: var(--bw) solid rgba(74,222,154,0.15);
-  border-bottom: var(--bw) solid rgba(74,222,154,0.15);
+#intro{
+  background:var(--gm);padding:2rem 0;
+  border-top:var(--bw) solid rgba(74,222,154,.15);
+  border-bottom:var(--bw) solid rgba(74,222,154,.15);
 }
-.intro-inner { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
-.intro-tag { font-size: 0.7rem; font-weight: 800; color: var(--mint); text-transform: uppercase; letter-spacing: 0.12em; white-space: nowrap; }
-.intro-bar { width: 1px; height: 36px; background: rgba(74,222,154,0.25); flex-shrink: 0; }
-.intro-p { font-size: 0.9rem; color: rgba(255,255,255,0.68); line-height: 1.72; }
+.intro-inner{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.intro-tag{font-size:.7rem;font-weight:800;color:var(--mint);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
+.intro-bar{width:1px;height:36px;background:rgba(74,222,154,.25);flex-shrink:0}
+.intro-p{font-size:.9rem;color:rgba(255,255,255,.68);line-height:1.72}
+
+/* ═══════════════════════════════════════════════════════════
+   STATS
+═══════════════════════════════════════════════════════════ */
+#stats{
+  background:var(--gd);padding:3.5rem 0;
+  border-bottom:var(--bw) solid rgba(74,222,154,.12);
+}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-item{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:1.75rem 1rem;text-align:center;
+  border-right:var(--bw) solid rgba(74,222,154,.14);
+}
+.stat-item:last-child{border-right:none}
+.stat-n{
+  font-size:clamp(2rem,4vw,3rem);font-weight:900;
+  color:var(--mint);line-height:1;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums;
+}
+.stat-label{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.5);margin-top:.625rem;text-transform:uppercase;letter-spacing:.08em;line-height:1.45;text-align:center}
+
+/* ═══════════════════════════════════════════════════════════
+   SHARED SECTION HEADER
+═══════════════════════════════════════════════════════════ */
+.sec-hd{margin-bottom:2.5rem}
+.sec-ey{font-size:.68rem;font-weight:800;color:var(--ey-c);text-transform:uppercase;letter-spacing:.14em;margin-bottom:.5rem;transition:color .3s ease}
+.sec-h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-.03em;color:var(--t1);transition:color .3s ease}
+.sec-sub{font-size:.78rem;color:var(--t3);margin-top:.25rem;transition:color .3s ease}
 
 /* ═══════════════════════════════════════════════════════════
    INFORMATION
 ═══════════════════════════════════════════════════════════ */
-#information { padding: 5rem 0; background: var(--bg); transition: background-color 0.3s ease; }
-
-.sec-hd { margin-bottom: 2.5rem; }
-.sec-ey { font-size: 0.68rem; font-weight: 800; color: var(--ey-c); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 0.5rem; transition: color 0.3s ease; }
-.sec-h2 { font-size: clamp(1.5rem,3vw,2rem); font-weight: 800; letter-spacing: -0.03em; color: var(--t1); transition: color 0.3s ease; }
-.sec-sub { font-size: 0.78rem; color: var(--t3); margin-top: 0.25rem; transition: color 0.3s ease; }
-
-.news-list { display: flex; flex-direction: column; }
-.ni {
-  display: grid; grid-template-columns: 108px 88px 1fr;
-  gap: 1.375rem; align-items: start;
-  padding: 1.375rem 0;
-  border-bottom: var(--bw) solid var(--brd);
-  transition: background var(--ease), border-color 0.3s ease;
+#information{padding:5rem 0;background:var(--bg);transition:background-color .3s ease}
+.news-list{display:flex;flex-direction:column}
+.ni{
+  display:grid;grid-template-columns:108px 92px 1fr;
+  gap:1.375rem;align-items:start;padding:1.375rem 0;
+  border-bottom:var(--bw) solid var(--brd);
+  transition:background var(--ease),border-color .3s ease;
 }
-.ni:first-child { border-top: var(--bw) solid var(--brd); }
-.ni:hover { background: var(--ni-hov); }
-.ni-date { font-size: 0.8rem; color: var(--t3); font-weight: 500; padding-top: 0.125rem; white-space: nowrap; transition: color 0.3s ease; }
-.ni-cat {
-  display: inline-block; padding: 0.2rem 0.55rem; align-self: start;
-  background: var(--cat-bg); color: var(--cat-c);
-  font-size: 0.67rem; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 0.06em;
-  border-radius: var(--r); white-space: nowrap;
-  transition: background 0.3s ease, color 0.3s ease;
+.ni:first-child{border-top:var(--bw) solid var(--brd)}
+.ni:hover{background:var(--ni-hov)}
+.ni-date{font-size:.8rem;color:var(--t3);font-weight:500;padding-top:.125rem;white-space:nowrap;transition:color .3s ease}
+.ni-cat{
+  display:inline-block;padding:.2rem .55rem;align-self:start;
+  background:var(--cat-bg);color:var(--cat-c);
+  font-size:.67rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  border-radius:var(--r);white-space:nowrap;
+  transition:background .3s ease,color .3s ease;
 }
-.ni-t { font-size: 0.9375rem; font-weight: 700; color: var(--t1); line-height: 1.45; margin-bottom: 0.35rem; transition: color 0.3s ease; }
-.ni-x { font-size: 0.875rem; color: var(--t2); line-height: 1.68; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s ease; }
-
-.news-more { margin-top: 2rem; text-align: center; }
-.btn-ol {
-  display: inline-flex; align-items: center; gap: 0.375rem;
-  padding: 0.575rem 1.5rem;
-  border: var(--bw) solid var(--ol-brd); border-radius: var(--r);
-  color: var(--ol-c); font-size: 0.875rem; font-weight: 600;
-  transition: background var(--ease), color var(--ease), border-color 0.3s ease;
+.ni-t{font-size:.9375rem;font-weight:700;color:var(--t1);line-height:1.45;margin-bottom:.35rem;transition:color .3s ease}
+.ni-x{font-size:.875rem;color:var(--t2);line-height:1.68;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:color .3s ease}
+.news-more{margin-top:2rem;text-align:center}
+.btn-ol{
+  display:inline-flex;align-items:center;gap:.375rem;
+  padding:.575rem 1.5rem;
+  border:var(--bw) solid var(--ol-brd);border-radius:var(--r);
+  color:var(--ol-c);font-size:.875rem;font-weight:600;
+  transition:background var(--ease),color var(--ease),border-color .3s ease;
 }
-.btn-ol:hover { background: var(--ol-hbg); color: var(--ol-hc); }
+.btn-ol:hover{background:var(--ol-hbg);color:var(--ol-hc)}
 
 /* ═══════════════════════════════════════════════════════════
-   QUICK MENU
+   SERVICES
 ═══════════════════════════════════════════════════════════ */
-#quick { background: var(--gd); }
-.qm-grid {
-  display: flex;
-  border-top: var(--bw) solid rgba(74,222,154,0.14);
-  border-left: var(--bw) solid rgba(74,222,154,0.14);
+#services{padding:5rem 0;background:var(--bg-alt);transition:background-color .3s ease}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--brd);margin-top:2.5rem}
+.svc-card{
+  background:var(--bg);padding:2rem 1.5rem 2.25rem;
+  display:flex;flex-direction:column;gap:.75rem;
+  transition:background var(--ease);
 }
-.qm-card {
-  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 0.75rem; padding: 2.75rem 1rem; text-align: center;
-  border-right: var(--bw) solid rgba(74,222,154,0.14);
-  border-bottom: var(--bw) solid rgba(74,222,154,0.14);
-  transition: background var(--ease); cursor: pointer;
+.svc-card:hover{background:var(--bg-alt)}
+[data-theme="dark"] .svc-card{background:var(--bg-alt)}
+[data-theme="dark"] .svc-card:hover{background:rgba(74,222,154,.04)}
+.svc-ico{
+  width:48px;height:48px;border-radius:var(--r);
+  background:var(--cat-bg);display:flex;align-items:center;justify-content:center;
+  transition:background var(--ease);
 }
-.qm-card:hover { background: rgba(74,222,154,0.06); }
-.qm-ico {
-  width: 52px; height: 52px; border-radius: 50%;
-  background: rgba(74,222,154,0.1);
-  display: flex; align-items: center; justify-content: center;
-  transition: background var(--ease);
+.svc-card:hover .svc-ico,.svc-card:focus-within .svc-ico{background:rgba(10,61,46,.14)}
+[data-theme="dark"] .svc-card:hover .svc-ico{background:rgba(74,222,154,.14)}
+.svc-ico i{font-size:1.375rem;color:var(--ey-c)}
+.svc-h{font-size:.9375rem;font-weight:700;color:var(--t1);margin-top:.25rem;transition:color .3s ease}
+.svc-en{font-size:.62rem;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-top:-.25rem;transition:color .3s ease}
+.svc-p{font-size:.8125rem;color:var(--t2);line-height:1.72;transition:color .3s ease}
+.svc-more{
+  display:inline-flex;align-items:center;gap:.25rem;
+  font-size:.78rem;font-weight:700;color:var(--ey-c);margin-top:auto;
+  transition:gap var(--ease),color var(--ease);
 }
-.qm-card:hover .qm-ico { background: rgba(74,222,154,0.18); }
-.qm-ico i { font-size: 1.5rem; color: var(--mint); }
-.qm-lp { font-size: 0.875rem; font-weight: 700; color: #fff; line-height: 1.35; }
-.qm-le { font-size: 0.68rem; color: rgba(74,222,154,0.52); margin-top: 0.125rem; letter-spacing: 0.04em; }
-
-/* ═══════════════════════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════════════════════ */
-footer { background: var(--gk); padding: 4rem 0 0; }
-.foot-grid {
-  display: grid; grid-template-columns: 260px 1fr; gap: 4rem;
-  padding-bottom: 3rem; border-bottom: var(--bw) solid rgba(74,222,154,0.1);
-}
-.foot-logo-en { font-size: 1.125rem; font-weight: 900; color: var(--mint); letter-spacing: 0.06em; }
-.foot-logo-jp { font-size: 0.55rem; color: rgba(74,222,154,0.42); margin-top: 1px; }
-.foot-addr { font-size: 0.8125rem; color: rgba(255,255,255,0.38); line-height: 1.85; margin-top: 1.25rem; }
-.foot-addr a { color: rgba(255,255,255,0.38); transition: color var(--ease); }
-.foot-addr a:hover { color: var(--mint); }
-
-.foot-links-wrap { display: flex; flex-direction: column; }
-.foot-top-row {
-  display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;
-  padding-bottom: 1.25rem; margin-bottom: 1.75rem;
-  border-bottom: var(--bw) solid rgba(74,222,154,0.1);
-}
-.foot-top-row a { font-size: 0.8125rem; color: rgba(255,255,255,0.5); transition: color var(--ease); }
-.foot-top-row a:hover { color: var(--mint); }
-.foot-top-row .sep { color: rgba(255,255,255,0.2); font-size: 0.75rem; }
-
-.foot-nav { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; }
-.fcol-h { font-size: 0.65rem; font-weight: 800; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
-.fcol-links { display: flex; flex-direction: column; gap: 0.45rem; }
-.fcol-links a { font-size: 0.8125rem; color: rgba(255,255,255,0.4); transition: color var(--ease); }
-.fcol-links a:hover { color: var(--mint); }
-.fcol-gap { margin-top: 1.375rem; }
-.foot-bottom { text-align: center; padding: 1.25rem 0; }
-.foot-copy { font-size: 0.775rem; color: rgba(255,255,255,0.22); }
+.svc-more .ti{font-size:.75rem;transition:transform var(--ease)}
+.svc-card:hover .svc-more{gap:.45rem;color:var(--mintd)}
+.svc-card:hover .svc-more .ti{transform:translateX(3px)}
 
 /* ═══════════════════════════════════════════════════════════
    FLEET GALLERY
 ═══════════════════════════════════════════════════════════ */
-#fleet { padding: 5rem 0; background: var(--bg-alt); transition: background-color 0.3s ease; }
-[data-theme="dark"] #fleet { background: var(--bg); }
-.fleet-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem;
+#fleet{padding:5rem 0;background:var(--bg);transition:background-color .3s ease}
+.fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}
+.fleet-card{
+  position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:var(--r);
+  background:var(--gm);
 }
-.fleet-card {
-  position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: var(--r);
-  background: var(--gm);
+.fleet-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease}
+.fleet-card:hover img{transform:scale(1.06)}
+.fleet-cap{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(7,31,23,.92));
+  padding:2.5rem 1rem 1rem;
 }
-.fleet-card img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  transition: transform 0.5s ease;
+.fleet-cap-en{font-size:.62rem;font-weight:800;color:var(--mint);text-transform:uppercase;letter-spacing:.1em}
+.fleet-cap-jp{font-size:.9375rem;font-weight:700;color:#fff;margin-top:.125rem}
+.fleet-cap-sub{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.2rem}
+
+/* ═══════════════════════════════════════════════════════════
+   CTA STRIP
+═══════════════════════════════════════════════════════════ */
+#cta{
+  background:var(--gm);padding:4rem 0;
+  border-top:var(--bw) solid rgba(74,222,154,.15);
+  border-bottom:var(--bw) solid rgba(74,222,154,.15);
 }
-.fleet-card:hover img { transform: scale(1.06); }
-.fleet-cap {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(7,31,23,0.92));
-  padding: 2.5rem 1rem 1rem;
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.cta-ey{font-size:.68rem;font-weight:800;color:rgba(74,222,154,.65);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.625rem}
+.cta-h{font-size:clamp(1.25rem,2.5vw,1.75rem);font-weight:900;color:#fff;line-height:1.25;letter-spacing:-.02em}
+.cta-p{font-size:.9rem;color:rgba(255,255,255,.6);margin-top:.625rem}
+.cta-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;flex-shrink:0}
+.cta-tel{display:flex;flex-direction:column;align-items:flex-end}
+.cta-tel-label{font-size:.62rem;font-weight:700;color:rgba(74,222,154,.55);text-transform:uppercase;letter-spacing:.08em}
+.cta-tel-n{font-size:1.5rem;font-weight:900;color:#fff;letter-spacing:.02em;line-height:1}
+.btn-cta{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.75rem 1.75rem;
+  background:var(--mint);color:var(--gd);
+  font-size:.9375rem;font-weight:700;border-radius:var(--r);
+  transition:background var(--ease),transform var(--ease);
+  white-space:nowrap;
 }
-.fleet-cap-en {
-  font-size: 0.62rem; font-weight: 800; color: var(--mint);
-  text-transform: uppercase; letter-spacing: 0.1em;
+.btn-cta:hover{background:var(--mintd);transform:translateY(-2px)}
+
+/* ═══════════════════════════════════════════════════════════
+   QUICK MENU
+═══════════════════════════════════════════════════════════ */
+#quick{background:var(--gd)}
+.qm-grid{
+  display:flex;max-width:1200px;margin:0 auto;
+  border-top:var(--bw) solid rgba(74,222,154,.14);
+  border-left:var(--bw) solid rgba(74,222,154,.14);
 }
-.fleet-cap-jp { font-size: 0.9375rem; font-weight: 700; color: #fff; margin-top: 0.125rem; }
-.fleet-cap-sub { font-size: 0.72rem; color: rgba(255,255,255,0.52); margin-top: 0.2rem; }
+.qm-card{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.75rem;padding:2.75rem 1rem;text-align:center;
+  border-right:var(--bw) solid rgba(74,222,154,.14);
+  border-bottom:var(--bw) solid rgba(74,222,154,.14);
+  transition:background var(--ease);cursor:pointer;
+}
+.qm-card:hover{background:rgba(74,222,154,.06)}
+.qm-ico{
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(74,222,154,.1);
+  display:flex;align-items:center;justify-content:center;
+  transition:background var(--ease);
+}
+.qm-card:hover .qm-ico{background:rgba(74,222,154,.18)}
+.qm-ico i{font-size:1.5rem;color:var(--mint)}
+.qm-lp{font-size:.875rem;font-weight:700;color:#fff;line-height:1.35}
+.qm-le{font-size:.68rem;color:rgba(74,222,154,.52);margin-top:.125rem;letter-spacing:.04em}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════════ */
+footer{background:var(--gk);padding:4rem 0 0}
+.foot-grid{
+  display:grid;grid-template-columns:260px 1fr;gap:4rem;
+  padding-bottom:3rem;border-bottom:var(--bw) solid rgba(74,222,154,.1);
+}
+.foot-logo-en{font-size:1.125rem;font-weight:900;color:var(--mint);letter-spacing:.06em}
+.foot-logo-jp{font-size:.55rem;color:rgba(74,222,154,.42);margin-top:1px}
+.foot-addr{font-size:.8125rem;color:rgba(255,255,255,.38);line-height:1.85;margin-top:1.25rem;font-style:normal}
+.foot-addr a{color:rgba(255,255,255,.38);transition:color var(--ease)}
+.foot-addr a:hover{color:var(--mint)}
+.foot-links-wrap{display:flex;flex-direction:column}
+.foot-top-row{
+  display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;
+  padding-bottom:1.25rem;margin-bottom:1.75rem;
+  border-bottom:var(--bw) solid rgba(74,222,154,.1);
+}
+.foot-top-row a{font-size:.8125rem;color:rgba(255,255,255,.5);transition:color var(--ease)}
+.foot-top-row a:hover{color:var(--mint)}
+.foot-top-row .sep{color:rgba(255,255,255,.2);font-size:.75rem}
+.foot-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.fcol-h{font-size:.65rem;font-weight:800;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem}
+.fcol-links{display:flex;flex-direction:column;gap:.45rem}
+.fcol-links a{font-size:.8125rem;color:rgba(255,255,255,.4);transition:color var(--ease)}
+.fcol-links a:hover{color:var(--mint)}
+.fcol-gap{margin-top:1.375rem}
+.foot-bottom{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;
+  padding:1.25rem 0;border-top:var(--bw) solid rgba(74,222,154,.06);
+  margin-top:0;
+}
+.foot-copy{font-size:.775rem;color:rgba(255,255,255,.22)}
+.foot-social{display:flex;gap:.75rem}
+.foot-social a{
+  width:32px;height:32px;border-radius:var(--r);
+  background:rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.35);font-size:.9rem;
+  transition:background var(--ease),color var(--ease);
+}
+.foot-social a:hover{background:rgba(74,222,154,.12);color:var(--mint)}
+
+/* ── BACK TO TOP ─────────────────────────────────────────── */
+#totop{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--gm);color:var(--mint);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.125rem;
+  opacity:0;transform:translateY(8px);pointer-events:none;
+  transition:opacity .3s ease,transform .3s ease,background var(--ease);
+  box-shadow:0 2px 16px rgba(0,0,0,.35);
+}
+#totop.show{opacity:1;transform:translateY(0);pointer-events:all}
+#totop:hover{background:var(--mintd);color:var(--gd)}
 
 /* ═══════════════════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════════════════ */
-@media (max-width: 1100px) {
-  .nav-item > a { padding: 0 0.45rem; font-size: 0.73rem; }
+@media(max-width:1100px){
+  .nav-item>a{padding:0 .45rem;font-size:.73rem}
+  .stats-grid{grid-template-columns:repeat(4,1fr)}
 }
-@media (max-width: 960px) {
-  .nav-list { display: none; }
-  .nav-right { margin-left: auto; }
-  .hbtn { display: flex; }
-  #mnav { display: block; }
-
-  .ni { grid-template-columns: 98px auto; }
-  .ni-content { grid-column: 1 / -1; }
-
-  .qm-grid { flex-wrap: wrap; }
-  .qm-card { flex: 1 1 calc(33.333% - 1px); }
-
-  .foot-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .foot-nav { grid-template-columns: repeat(2,1fr); }
+@media(max-width:960px){
+  .nav-list{display:none}
+  .nav-right{margin-left:auto}
+  .hbtn{display:flex}
+  #mnav{display:block}
+  .ni{grid-template-columns:98px auto}
+  .ni-content{grid-column:1/-1}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .qm-grid{flex-wrap:wrap}
+  .qm-card{flex:1 1 calc(33.333% - 1px)}
+  .foot-grid{grid-template-columns:1fr;gap:2.5rem}
+  .foot-nav{grid-template-columns:repeat(2,1fr)}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-item:nth-child(2){border-right:none}
+  .stat-item:nth-child(3){border-top:var(--bw) solid rgba(74,222,154,.14)}
 }
-@media (max-width: 640px) {
-  .wrap { padding: 0 1.125rem; }
-  .ni { grid-template-columns: 1fr; gap: 0.5rem; }
-  .intro-bar { display: none; }
-  .intro-inner { gap: 0.75rem; }
-  .qm-card { flex: 1 1 calc(50% - 1px); }
-  .qm-card:nth-child(5) { flex: 1 1 100%; }
-  #information { padding: 3.5rem 0; }
-  .foot-nav { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .c-arrow { display: none; }
-  .fleet-grid { grid-template-columns: 1fr 1fr; }
+@media(max-width:640px){
+  .wrap{padding:0 1.125rem}
+  .ni{grid-template-columns:1fr;gap:.5rem}
+  .intro-bar{display:none}
+  .intro-inner{gap:.75rem}
+  .svc-grid{grid-template-columns:1fr}
+  .qm-card{flex:1 1 calc(50% - 1px)}
+  .qm-card:nth-child(5){flex:1 1 100%}
+  #information,#services,#fleet{padding:3.5rem 0}
+  .foot-nav{grid-template-columns:1fr 1fr;gap:1.5rem}
+  .c-arrow{display:none}
+  .fleet-grid{grid-template-columns:1fr 1fr}
+  .cta-inner{flex-direction:column;align-items:flex-start}
+  .cta-actions{width:100%;justify-content:flex-start}
+  .cta-tel{align-items:flex-start}
 }
-@media (max-width: 400px) {
-  .foot-nav { grid-template-columns: 1fr; }
-  .fleet-grid { grid-template-columns: 1fr; }
+@media(max-width:400px){
+  .foot-nav{grid-template-columns:1fr}
+  .fleet-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
 }
   </style>
 </head>
 <body>
 
+<a href="#main" class="skip-link"><span class="lang-jp">コンテンツへスキップ</span><span class="lang-en">Skip to content</span></a>
+
 <!-- ════ NAVBAR ════════════════════════════════════════════════ -->
 <nav id="nav" role="navigation" aria-label="メインナビゲーション">
   <div class="wrap nav-wrap">
-
-    <a href="#hero" class="nav-logo" aria-label="SS LINE — ホームへ">
+    <a href="#hero" class="nav-logo" aria-label="SS LINE ホームへ">
       <span class="nav-logo-en">SS LINE</span>
       <span class="nav-logo-jp">株式会社エスエスライン</span>
     </a>
-
     <ul class="nav-list" role="list">
+      <li class="nav-item"><a href="#hero"><span class="lang-jp">ホーム</span><span class="lang-en">Home</span></a></li>
+      <li class="nav-item"><a href="#information">INFORMATION</a></li>
       <li class="nav-item">
-        <a href="#hero">
-          <span class="lang-jp">ホーム</span>
-          <span class="lang-en">Home</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#information">INFORMATION</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" aria-haspopup="true" aria-expanded="false">
-          <span class="lang-jp">会社情報</span>
-          <span class="lang-en">About Us</span>
+        <a href="#" aria-haspopup="menu" aria-expanded="false">
+          <span class="lang-jp">会社情報</span><span class="lang-en">About Us</span>
           <i class="ti ti-chevron-down" aria-hidden="true"></i>
         </a>
         <ul class="dd" role="menu">
           <li><a href="#" role="menuitem"><span class="lang-jp">社長メッセージ</span><span class="lang-en">President's Message</span></a></li>
-          <li><a href="#" role="menuitem"><span class="lang-jp">経営理念</span><span class="lang-en">Management Philosophy</span></a></li>
+          <li><a href="#" role="menuitem"><span class="lang-jp">経営理念</span><span class="lang-en">Philosophy</span></a></li>
           <li><a href="#" role="menuitem"><span class="lang-jp">会社概要</span><span class="lang-en">Company Profile</span></a></li>
-          <li><a href="#" role="menuitem"><span class="lang-jp">沿革</span><span class="lang-en">Company History</span></a></li>
+          <li><a href="#" role="menuitem"><span class="lang-jp">沿革</span><span class="lang-en">History</span></a></li>
           <li><a href="#" role="menuitem"><span class="lang-jp">事務所案内</span><span class="lang-en">Office Guide</span></a></li>
         </ul>
       </li>
+      <li class="nav-item"><a href="#services"><span class="lang-jp">事業内容</span><span class="lang-en">Services</span></a></li>
       <li class="nav-item">
-        <a href="#">
-          <span class="lang-jp">事業内容</span>
-          <span class="lang-en">Our Services</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" aria-haspopup="true" aria-expanded="false">
-          <span class="lang-jp">環境・安全への取り組み</span>
-          <span class="lang-en">Eco &amp; Safety</span>
+        <a href="#" aria-haspopup="menu" aria-expanded="false">
+          <span class="lang-jp">環境・安全への取り組み</span><span class="lang-en">Eco &amp; Safety</span>
           <i class="ti ti-chevron-down" aria-hidden="true"></i>
         </a>
         <ul class="dd" role="menu">
@@ -498,16 +566,10 @@ footer { background: var(--gk); padding: 4rem 0 0; }
           <li><a href="#" role="menuitem"><span class="lang-jp">安全への取り組み</span><span class="lang-en">Safety</span></a></li>
         </ul>
       </li>
+      <li class="nav-item"><a href="#fleet"><span class="lang-jp">車両紹介</span><span class="lang-en">Our Fleet</span></a></li>
       <li class="nav-item">
-        <a href="#">
-          <span class="lang-jp">車両紹介</span>
-          <span class="lang-en">Our Fleet</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" aria-haspopup="true" aria-expanded="false">
-          <span class="lang-jp">採用情報</span>
-          <span class="lang-en">Recruitment</span>
+        <a href="#" aria-haspopup="menu" aria-expanded="false">
+          <span class="lang-jp">採用情報</span><span class="lang-en">Recruitment</span>
           <i class="ti ti-chevron-down" aria-hidden="true"></i>
         </a>
         <ul class="dd" role="menu">
@@ -515,32 +577,18 @@ footer { background: var(--gk); padding: 4rem 0 0; }
           <li><a href="#" role="menuitem"><span class="lang-jp">スタッフの声</span><span class="lang-en">Staff Voices</span></a></li>
         </ul>
       </li>
-      <li class="nav-item">
-        <a href="#footer">
-          <span class="lang-jp">お問い合せ</span>
-          <span class="lang-en">Contact</span>
-        </a>
-      </li>
+      <li class="nav-item"><a href="#cta"><span class="lang-jp">お問い合せ</span><span class="lang-en">Contact</span></a></li>
     </ul>
-
-    <!-- Controls: lang + theme always visible -->
     <div class="nav-right">
       <div class="nav-ctl">
-        <!-- Shows "EN" when page is JP (click to switch to English) -->
-        <!-- Shows "JP" when page is EN (click to switch to Japanese) -->
-        <button class="ctl" id="lang-btn" aria-label="言語切替 / Switch Language">
-          <span class="lang-jp">EN</span>
-          <span class="lang-en">JP</span>
+        <button class="ctl" id="lang-btn" aria-label="Switch to English">
+          <span class="lang-jp">EN</span><span class="lang-en">JP</span>
         </button>
-        <!-- Shows moon in light mode (click to go dark), sun in dark mode -->
-        <button class="ctl" id="theme-btn" aria-label="テーマ切替 / Switch Theme">
+        <button class="ctl" id="theme-btn" aria-label="ダークモードへ切替">
           <i class="ti ti-moon" id="theme-i" aria-hidden="true"></i>
         </button>
       </div>
-      <button class="hbtn" id="hbtn"
-              aria-label="メニューを開く"
-              aria-expanded="false"
-              aria-controls="mnav">
+      <button class="hbtn" id="hbtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="mnav">
         <i class="ti ti-menu-2" id="hbtn-i" aria-hidden="true"></i>
       </button>
     </div>
@@ -550,12 +598,8 @@ footer { background: var(--gk); padding: 4rem 0 0; }
 <!-- ════ MOBILE NAV ════════════════════════════════════════════ -->
 <div id="mnav" aria-label="モバイルナビゲーション">
   <ul role="list">
-    <li class="mi">
-      <a href="#hero"><span class="lang-jp">ホーム</span><span class="lang-en">Home</span></a>
-    </li>
-    <li class="mi">
-      <a href="#information">INFORMATION</a>
-    </li>
+    <li class="mi"><a href="#hero"><span class="lang-jp">ホーム</span><span class="lang-en">Home</span></a></li>
+    <li class="mi"><a href="#information">INFORMATION</a></li>
     <li class="mi" id="mi-1">
       <a href="#" role="button" aria-expanded="false" aria-controls="mdd-1">
         <span><span class="lang-jp">会社情報</span><span class="lang-en">About Us</span></span>
@@ -563,15 +607,13 @@ footer { background: var(--gk); padding: 4rem 0 0; }
       </a>
       <div class="mdd" id="mdd-1">
         <a href="#"><span class="lang-jp">社長メッセージ</span><span class="lang-en">President's Message</span></a>
-        <a href="#"><span class="lang-jp">経営理念</span><span class="lang-en">Management Philosophy</span></a>
+        <a href="#"><span class="lang-jp">経営理念</span><span class="lang-en">Philosophy</span></a>
         <a href="#"><span class="lang-jp">会社概要</span><span class="lang-en">Company Profile</span></a>
-        <a href="#"><span class="lang-jp">沿革</span><span class="lang-en">Company History</span></a>
+        <a href="#"><span class="lang-jp">沿革</span><span class="lang-en">History</span></a>
         <a href="#"><span class="lang-jp">事務所案内</span><span class="lang-en">Office Guide</span></a>
       </div>
     </li>
-    <li class="mi">
-      <a href="#"><span class="lang-jp">事業内容</span><span class="lang-en">Our Services</span></a>
-    </li>
+    <li class="mi"><a href="#services"><span class="lang-jp">事業内容</span><span class="lang-en">Services</span></a></li>
     <li class="mi" id="mi-2">
       <a href="#" role="button" aria-expanded="false" aria-controls="mdd-2">
         <span><span class="lang-jp">環境・安全への取り組み</span><span class="lang-en">Eco &amp; Safety</span></span>
@@ -582,9 +624,7 @@ footer { background: var(--gk); padding: 4rem 0 0; }
         <a href="#"><span class="lang-jp">安全への取り組み</span><span class="lang-en">Safety</span></a>
       </div>
     </li>
-    <li class="mi">
-      <a href="#"><span class="lang-jp">車両紹介</span><span class="lang-en">Our Fleet</span></a>
-    </li>
+    <li class="mi"><a href="#fleet"><span class="lang-jp">車両紹介</span><span class="lang-en">Our Fleet</span></a></li>
     <li class="mi" id="mi-3">
       <a href="#" role="button" aria-expanded="false" aria-controls="mdd-3">
         <span><span class="lang-jp">採用情報</span><span class="lang-en">Recruitment</span></span>
@@ -595,28 +635,25 @@ footer { background: var(--gk); padding: 4rem 0 0; }
         <a href="#"><span class="lang-jp">スタッフの声</span><span class="lang-en">Staff Voices</span></a>
       </div>
     </li>
-    <li class="mi">
-      <a href="#footer"><span class="lang-jp">お問い合せ</span><span class="lang-en">Contact</span></a>
-    </li>
+    <li class="mi"><a href="#cta"><span class="lang-jp">お問い合せ</span><span class="lang-en">Contact</span></a></li>
   </ul>
 </div>
+
+<main id="main">
 
 <!-- ════ HERO CAROUSEL ═════════════════════════════════════════ -->
 <section id="hero" aria-label="メインビジュアル" aria-roledescription="カルーセル">
   <div class="carousel" aria-live="polite" aria-atomic="false">
 
-    <!-- Slide 1 -->
-    <div class="slide active" role="group" aria-roledescription="スライド" aria-label="1 / 4"
-         style="background-image:linear-gradient(rgba(7,31,23,0.72),rgba(10,61,46,0.82)),url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1600&q=80&auto=format&fit=crop');background-size:cover;background-position:center;">
+    <div class="slide active" role="group" aria-roledescription="スライド" aria-label="1 / 4">
+      <div class="slide-bg" style="background-image:linear-gradient(rgba(7,31,23,.72),rgba(10,61,46,.82)),url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1600&q=80&auto=format&fit=crop')"></div>
+      <div class="slide-grid" aria-hidden="true"></div>
       <div class="wrap slide-body">
-        <div class="slide-pill">
-          <i class="ti ti-truck" aria-hidden="true"></i>
+        <div class="slide-pill"><i class="ti ti-truck" aria-hidden="true"></i>
           <span class="lang-jp">SS LINE · 物流のプロフェッショナル</span>
           <span class="lang-en">SS LINE · Logistics Professional</span>
         </div>
-        <h1 class="slide-h1">
-          Hope for the <span class="m">future</span>
-        </h1>
+        <h1 class="slide-h1">Hope for the <span class="m">future</span></h1>
         <p class="slide-p">
           <span class="lang-jp">物流の未来に挑戦し続けます</span>
           <span class="lang-en">We continue to challenge the future of logistics</span>
@@ -624,12 +661,11 @@ footer { background: var(--gk); padding: 4rem 0 0; }
       </div>
     </div>
 
-    <!-- Slide 2 -->
-    <div class="slide" role="group" aria-roledescription="スライド" aria-label="2 / 4"
-         style="background-image:linear-gradient(rgba(7,31,23,0.72),rgba(10,61,46,0.82)),url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80&auto=format&fit=crop');background-size:cover;background-position:center;">
+    <div class="slide" role="group" aria-roledescription="スライド" aria-label="2 / 4">
+      <div class="slide-bg" style="background-image:linear-gradient(rgba(7,31,23,.72),rgba(10,61,46,.82)),url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80&auto=format&fit=crop')"></div>
+      <div class="slide-grid" aria-hidden="true"></div>
       <div class="wrap slide-body">
-        <div class="slide-pill">
-          <i class="ti ti-users" aria-hidden="true"></i>
+        <div class="slide-pill"><i class="ti ti-users" aria-hidden="true"></i>
           <span class="lang-jp">採用情報 · Recruit</span>
           <span class="lang-en">Recruitment · Join Our Team</span>
         </div>
@@ -642,19 +678,17 @@ footer { background: var(--gk); padding: 4rem 0 0; }
           <span class="lang-en">Driver Recruitment</span>
         </p>
         <a href="#" class="slide-cta">
-          <span class="lang-jp">詳しく見る</span>
-          <span class="lang-en">Learn More</span>
+          <span class="lang-jp">詳しく見る</span><span class="lang-en">Learn More</span>
           <i class="ti ti-arrow-right" aria-hidden="true"></i>
         </a>
       </div>
     </div>
 
-    <!-- Slide 3 -->
-    <div class="slide" role="group" aria-roledescription="スライド" aria-label="3 / 4"
-         style="background-image:linear-gradient(rgba(7,31,23,0.72),rgba(10,61,46,0.82)),url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600&q=80&auto=format&fit=crop');background-size:cover;background-position:center;">
+    <div class="slide" role="group" aria-roledescription="スライド" aria-label="3 / 4">
+      <div class="slide-bg" style="background-image:linear-gradient(rgba(7,31,23,.72),rgba(10,61,46,.82)),url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600&q=80&auto=format&fit=crop')"></div>
+      <div class="slide-grid" aria-hidden="true"></div>
       <div class="wrap slide-body">
-        <div class="slide-pill">
-          <i class="ti ti-shield-check" aria-hidden="true"></i>
+        <div class="slide-pill"><i class="ti ti-shield-check" aria-hidden="true"></i>
           <span class="lang-jp">安全・安心・確実</span>
           <span class="lang-en">Safety · Security · Certainty</span>
         </div>
@@ -669,14 +703,11 @@ footer { background: var(--gk); padding: 4rem 0 0; }
       </div>
     </div>
 
-    <!-- Slide 4 -->
-    <div class="slide" role="group" aria-roledescription="スライド" aria-label="4 / 4"
-         style="background-image:linear-gradient(rgba(7,31,23,0.72),rgba(10,61,46,0.82)),url('https://images.unsplash.com/photo-1485575301487-25aa7ecaad9f?w=1600&q=80&auto=format&fit=crop');background-size:cover;background-position:center;">
+    <div class="slide" role="group" aria-roledescription="スライド" aria-label="4 / 4">
+      <div class="slide-bg" style="background-image:linear-gradient(rgba(7,31,23,.72),rgba(10,61,46,.82)),url('https://images.unsplash.com/photo-1485575301487-25aa7ecaad9f?w=1600&q=80&auto=format&fit=crop')"></div>
+      <div class="slide-grid" aria-hidden="true"></div>
       <div class="wrap slide-body">
-        <div class="slide-pill">
-          <i class="ti ti-heart" aria-hidden="true"></i>
-          Heart to Heart
-        </div>
+        <div class="slide-pill"><i class="ti ti-heart" aria-hidden="true"></i>Heart to Heart</div>
         <h1 class="slide-h1"><span class="m">Heart</span> to Heart</h1>
         <p class="slide-p">
           <span class="lang-jp">お客様から信頼・信用されるサポーターであり続けます</span>
@@ -687,7 +718,6 @@ footer { background: var(--gk); padding: 4rem 0 0; }
 
     <button class="c-arrow c-prev" id="cprev" aria-label="前のスライド"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
     <button class="c-arrow c-next" id="cnext" aria-label="次のスライド"><i class="ti ti-arrow-right" aria-hidden="true"></i></button>
-
     <div class="c-dots" role="tablist" aria-label="スライドを選択">
       <button class="c-dot on" data-n="0" role="tab" aria-selected="true"  aria-label="スライド 1"></button>
       <button class="c-dot"    data-n="1" role="tab" aria-selected="false" aria-label="スライド 2"></button>
@@ -698,7 +728,7 @@ footer { background: var(--gk); padding: 4rem 0 0; }
 </section>
 
 <!-- ════ INTRO STRIP ════════════════════════════════════════════ -->
-<div id="intro" role="region">
+<section id="intro" aria-label="会社紹介">
   <div class="wrap">
     <div class="intro-inner">
       <span class="intro-tag">物流の未来へ挑戦 · Hope For The Future</span>
@@ -709,108 +739,185 @@ footer { background: var(--gk); padding: 4rem 0 0; }
       </p>
     </div>
   </div>
-</div>
+</section>
+
+<!-- ════ STATS ══════════════════════════════════════════════════ -->
+<section id="stats" aria-label="実績">
+  <div class="stats-grid">
+    <div class="stat-item fade-up">
+      <div class="stat-n" data-count="35" data-suffix="台+">35台+</div>
+      <div class="stat-label"><span class="lang-jp">保有車両</span><span class="lang-en">Fleet Size</span></div>
+    </div>
+    <div class="stat-item fade-up">
+      <div class="stat-n" data-count="500" data-suffix="万km+">500万km+</div>
+      <div class="stat-label"><span class="lang-jp">安全走行実績</span><span class="lang-en">Safe KM Record</span></div>
+    </div>
+    <div class="stat-item fade-up">
+      <div class="stat-n" data-count="365" data-suffix="日">365日</div>
+      <div class="stat-label"><span class="lang-jp">年間稼働</span><span class="lang-en">Annual Operation</span></div>
+    </div>
+    <div class="stat-item fade-up">
+      <div class="stat-n" style="font-size:clamp(1.25rem,2.5vw,1.875rem)">
+        <span class="lang-jp">関東全域</span><span class="lang-en">All Kanto</span>
+      </div>
+      <div class="stat-label"><span class="lang-jp">対応エリア</span><span class="lang-en">Coverage Area</span></div>
+    </div>
+  </div>
+</section>
 
 <!-- ════ INFORMATION ════════════════════════════════════════════ -->
 <section id="information" aria-labelledby="info-h2">
   <div class="wrap">
-    <div class="sec-hd">
+    <div class="sec-hd fade-up">
       <div class="sec-ey">INFORMATION</div>
       <h2 class="sec-h2" id="info-h2">
-        <span class="lang-jp">お知らせ</span>
-        <span class="lang-en">Latest News</span>
+        <span class="lang-jp">お知らせ</span><span class="lang-en">Latest News</span>
       </h2>
       <div class="sec-sub">
         <span class="lang-jp">最新情報 · Latest News &amp; Updates</span>
         <span class="lang-en">Latest News &amp; Updates</span>
       </div>
     </div>
-
     <div class="news-list" role="list">
-
-      <article class="ni" role="listitem">
+      <article class="ni fade-up" role="listitem">
         <time class="ni-date" datetime="2016-05-15">2016.05.15</time>
         <span class="ni-cat"><span class="lang-jp">社内行事</span><span class="lang-en">Company Event</span></span>
         <div class="ni-content">
-          <h3 class="ni-t">
-            <span class="lang-jp">野球大会！！</span>
-            <span class="lang-en">Baseball Tournament!!</span>
-          </h3>
+          <h3 class="ni-t"><span class="lang-jp">野球大会！！</span><span class="lang-en">Baseball Tournament!!</span></h3>
           <p class="ni-x">
             <span class="lang-jp">こんにちは！ゴールデンウィークも終わりを迎えましたが、皆様いかがお過ごしでしょうか。さて、我が社は昨年よりエスエスライン...</span>
             <span class="lang-en">Hello! Golden Week has come to an end — how is everyone doing? Our company, following last year, SS Line...</span>
           </p>
         </div>
       </article>
-
-      <article class="ni" role="listitem">
+      <article class="ni fade-up" role="listitem">
         <time class="ni-date" datetime="2016-04-10">2016.04.10</time>
         <span class="ni-cat"><span class="lang-jp">社内行事</span><span class="lang-en">Company Event</span></span>
         <div class="ni-content">
-          <h3 class="ni-t">
-            <span class="lang-jp">平成２８年第２回社内会議</span>
-            <span class="lang-en">2016 — 2nd Internal Company Meeting</span>
-          </h3>
+          <h3 class="ni-t"><span class="lang-jp">平成２８年第２回社内会議</span><span class="lang-en">2016 — 2nd Internal Meeting</span></h3>
           <p class="ni-x">
-            <span class="lang-jp">平成２８年４月９日、千葉県佐倉市のウィシュトンホテルにて今年２回目のエスエスライン社内会議が行われました。今回の会議は...</span>
-            <span class="lang-en">On April 9, 2016, the 2nd SS Line internal company meeting of the year was held at Wiston Hotel in Sakura City, Chiba. This meeting covered...</span>
+            <span class="lang-jp">平成２８年４月９日、千葉県佐倉市のウィシュトンホテルにて今年２回目のエスエスライン社内会議が行われました。</span>
+            <span class="lang-en">On April 9, 2016, the 2nd SS Line internal meeting was held at Wiston Hotel in Sakura City, Chiba.</span>
           </p>
         </div>
       </article>
-
-      <article class="ni" role="listitem">
+      <article class="ni fade-up" role="listitem">
         <time class="ni-date" datetime="2016-04-09">2016.04.09</time>
         <span class="ni-cat"><span class="lang-jp">採用情報</span><span class="lang-en">Recruitment</span></span>
         <div class="ni-content">
-          <h3 class="ni-t">
-            <span class="lang-jp">ドライバー募集！</span>
-            <span class="lang-en">Drivers Wanted!</span>
-          </h3>
+          <h3 class="ni-t"><span class="lang-jp">ドライバー募集！</span><span class="lang-en">Drivers Wanted!</span></h3>
           <p class="ni-x">
-            <span class="lang-jp">運転が好きだから―まずはその気持ちでスタートしてみませんか？エスエスラインではドライバーを募集しております。未経験か...</span>
-            <span class="lang-en">Because you love driving — why not start with just that feeling? SS Line is now recruiting drivers. Whether experienced or not...</span>
+            <span class="lang-jp">運転が好きだから―まずはその気持ちでスタートしてみませんか？エスエスラインではドライバーを募集しております。</span>
+            <span class="lang-en">Because you love driving — why not start with just that feeling? SS Line is now recruiting drivers.</span>
           </p>
         </div>
       </article>
-
-      <article class="ni" role="listitem">
+      <article class="ni fade-up" role="listitem">
         <time class="ni-date" datetime="2016-04-01">2016.04.01</time>
         <span class="ni-cat"><span class="lang-jp">お知らせ</span><span class="lang-en">Notice</span></span>
         <div class="ni-content">
-          <h3 class="ni-t">
-            <span class="lang-jp">ご挨拶</span>
-            <span class="lang-en">Greetings</span>
-          </h3>
+          <h3 class="ni-t"><span class="lang-jp">ご挨拶</span><span class="lang-en">Greetings</span></h3>
           <p class="ni-x">
-            <span class="lang-jp">平素は、格別のご厚情にあずかり深く感謝いたしております。この度株式会社エスエスラインのホームページを開設いたしました。当...</span>
-            <span class="lang-en">We are deeply grateful for your continued support and patronage. We have launched the SS Line Co., Ltd. website. Our...</span>
+            <span class="lang-jp">平素は、格別のご厚情にあずかり深く感謝いたしております。この度株式会社エスエスラインのホームページを開設いたしました。</span>
+            <span class="lang-en">We are deeply grateful for your continued support. We have launched the SS Line Co., Ltd. website.</span>
           </p>
         </div>
       </article>
-
-      <article class="ni" role="listitem">
+      <article class="ni fade-up" role="listitem">
         <time class="ni-date" datetime="2016-03-28">2016.03.28</time>
         <span class="ni-cat"><span class="lang-jp">お知らせ</span><span class="lang-en">Notice</span></span>
         <div class="ni-content">
-          <h3 class="ni-t">
-            <span class="lang-jp">ISUZU新型車輌納車！</span>
-            <span class="lang-en">New ISUZU Vehicle Delivered!</span>
-          </h3>
+          <h3 class="ni-t"><span class="lang-jp">ISUZU新型車輌納車！</span><span class="lang-en">New ISUZU Vehicle Delivered!</span></h3>
           <p class="ni-x">
-            <span class="lang-jp">平成28年3月24日（木）晴天の日に大型ウィングの新車が納車されました！今後もこの車輌がお客様のお役にたてる事を願って・...</span>
-            <span class="lang-en">On Thursday, March 24, 2016 — a clear and sunny day — our new large wing truck was delivered! We hope this vehicle will continue to serve our customers well...</span>
+            <span class="lang-jp">平成28年3月24日（木）晴天の日に大型ウィングの新車が納車されました！今後もこの車輌がお客様のお役にたてる事を願って。</span>
+            <span class="lang-en">On Thursday, March 24, 2016, our new large wing truck was delivered on a clear, sunny day!</span>
           </p>
         </div>
       </article>
-
     </div>
-
-    <div class="news-more">
+    <div class="news-more fade-up">
       <a href="#" class="btn-ol">
-        <span class="lang-jp">お知らせ一覧</span>
-        <span class="lang-en">View All News</span>
+        <span class="lang-jp">お知らせ一覧</span><span class="lang-en">View All News</span>
         <i class="ti ti-arrow-right" aria-hidden="true"></i>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SERVICES ═══════════════════════════════════════════════ -->
+<section id="services" aria-labelledby="svc-h2">
+  <div class="wrap">
+    <div class="sec-hd fade-up">
+      <div class="sec-ey">SERVICES</div>
+      <h2 class="sec-h2" id="svc-h2">
+        <span class="lang-jp">事業内容</span><span class="lang-en">Our Services</span>
+      </h2>
+      <div class="sec-sub">
+        <span class="lang-jp">安心・安全・確実のロジスティクスサービス</span>
+        <span class="lang-en">Safe, reliable, and precise logistics services</span>
+      </div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card fade-up">
+        <div class="svc-ico"><i class="ti ti-truck" aria-hidden="true"></i></div>
+        <div>
+          <div class="svc-h"><span class="lang-jp">一般貨物輸送</span><span class="lang-en">General Freight</span></div>
+          <div class="svc-en"><span class="lang-jp">General Freight</span><span class="lang-en">一般貨物輸送</span></div>
+        </div>
+        <p class="svc-p">
+          <span class="lang-jp">長距離・近距離を問わず、安全・確実な輸送サービスをご提供します。大型から小型まで幅広い車両で対応いたします。</span>
+          <span class="lang-en">Safe and reliable transport for both long and short distances. We cover a wide range of cargo with our fleet.</span>
+        </p>
+        <a href="#" class="svc-more">
+          <span class="lang-jp">詳しく見る</span><span class="lang-en">Learn more</span>
+          <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-ico"><i class="ti ti-building-warehouse" aria-hidden="true"></i></div>
+        <div>
+          <div class="svc-h"><span class="lang-jp">企業間物流</span><span class="lang-en">B2B Logistics</span></div>
+          <div class="svc-en"><span class="lang-jp">B2B Logistics</span><span class="lang-en">企業間物流</span></div>
+        </div>
+        <p class="svc-p">
+          <span class="lang-jp">製造・卸売・流通業の企業物流をトータルサポート。お客様のサプライチェーンを最適化いたします。</span>
+          <span class="lang-en">Total support for manufacturing, wholesale, and distribution logistics. We optimize your supply chain.</span>
+        </p>
+        <a href="#" class="svc-more">
+          <span class="lang-jp">詳しく見る</span><span class="lang-en">Learn more</span>
+          <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-ico"><i class="ti ti-calendar-check" aria-hidden="true"></i></div>
+        <div>
+          <div class="svc-h"><span class="lang-jp">定期配送</span><span class="lang-en">Scheduled Delivery</span></div>
+          <div class="svc-en"><span class="lang-jp">Scheduled Delivery</span><span class="lang-en">定期配送</span></div>
+        </div>
+        <p class="svc-p">
+          <span class="lang-jp">決まった時間に、決まった場所へ。スケジュール配送で業務効率の向上を支援いたします。</span>
+          <span class="lang-en">The right place, at the right time, every time. Scheduled routes to support your operational efficiency.</span>
+        </p>
+        <a href="#" class="svc-more">
+          <span class="lang-jp">詳しく見る</span><span class="lang-en">Learn more</span>
+          <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-ico"><i class="ti ti-clock-hour-3" aria-hidden="true"></i></div>
+        <div>
+          <div class="svc-h"><span class="lang-jp">チャーター便</span><span class="lang-en">Charter Service</span></div>
+          <div class="svc-en"><span class="lang-jp">Charter Service</span><span class="lang-en">チャーター便</span></div>
+        </div>
+        <p class="svc-p">
+          <span class="lang-jp">急ぎの荷物も大型貨物も。専用チャーター便で迅速・確実に対応いたします。365日対応可能です。</span>
+          <span class="lang-en">Urgent or oversized cargo handled promptly. Dedicated charter service available 365 days a year.</span>
+        </p>
+        <a href="#" class="svc-more">
+          <span class="lang-jp">詳しく見る</span><span class="lang-en">Learn more</span>
+          <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -818,71 +925,71 @@ footer { background: var(--gk); padding: 4rem 0 0; }
 <!-- ════ FLEET GALLERY ══════════════════════════════════════════ -->
 <section id="fleet" aria-labelledby="fleet-h2">
   <div class="wrap">
-    <div class="sec-hd">
+    <div class="sec-hd fade-up">
       <div class="sec-ey">OUR FLEET</div>
       <h2 class="sec-h2" id="fleet-h2">
-        <span class="lang-jp">車両紹介</span>
-        <span class="lang-en">Our Fleet</span>
+        <span class="lang-jp">車両紹介</span><span class="lang-en">Our Fleet</span>
       </h2>
       <div class="sec-sub">
         <span class="lang-jp">安全・安心を支える車両ラインナップ</span>
         <span class="lang-en">A lineup of vehicles that underpin our safety and reliability</span>
       </div>
     </div>
-
     <div class="fleet-grid">
-
-      <div class="fleet-card">
-        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80&auto=format&fit=crop"
-             alt="大型ウィング車"
-             loading="lazy" />
+      <div class="fleet-card fade-up">
+        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80&auto=format&fit=crop" alt="大型ウィング車" loading="lazy" />
         <div class="fleet-cap">
           <div class="fleet-cap-en">Large Wing</div>
-          <div class="fleet-cap-jp">
-            <span class="lang-jp">大型ウィング車</span>
-            <span class="lang-en">Large Wing Truck</span>
-          </div>
-          <div class="fleet-cap-sub">
-            <span class="lang-jp">ISUZU · 最大積載量 20t</span>
-            <span class="lang-en">ISUZU · Max load 20t</span>
-          </div>
+          <div class="fleet-cap-jp"><span class="lang-jp">大型ウィング車</span><span class="lang-en">Large Wing Truck</span></div>
+          <div class="fleet-cap-sub"><span class="lang-jp">ISUZU · 最大積載量 20t</span><span class="lang-en">ISUZU · Max load 20t</span></div>
         </div>
       </div>
-
-      <div class="fleet-card">
-        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format&fit=crop"
-             alt="中型トラック"
-             loading="lazy" />
+      <div class="fleet-card fade-up">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format&fit=crop" alt="中型トラック" loading="lazy" />
         <div class="fleet-cap">
           <div class="fleet-cap-en">Medium Truck</div>
-          <div class="fleet-cap-jp">
-            <span class="lang-jp">中型トラック</span>
-            <span class="lang-en">Medium Truck</span>
-          </div>
-          <div class="fleet-cap-sub">
-            <span class="lang-jp">多目的な中距離輸送に対応</span>
-            <span class="lang-en">Versatile mid-range transport</span>
-          </div>
+          <div class="fleet-cap-jp"><span class="lang-jp">中型トラック</span><span class="lang-en">Medium Truck</span></div>
+          <div class="fleet-cap-sub"><span class="lang-jp">多目的な中距離輸送に対応</span><span class="lang-en">Versatile mid-range transport</span></div>
         </div>
       </div>
-
-      <div class="fleet-card">
-        <img src="https://images.unsplash.com/photo-1570636428499-12e64ad3e2e8?w=800&q=80&auto=format&fit=crop"
-             alt="冷凍冷蔵車"
-             loading="lazy" />
+      <div class="fleet-card fade-up">
+        <img src="https://images.unsplash.com/photo-1570636428499-12e64ad3e2e8?w=800&q=80&auto=format&fit=crop" alt="冷凍冷蔵車" loading="lazy" />
         <div class="fleet-cap">
           <div class="fleet-cap-en">Refrigerated</div>
-          <div class="fleet-cap-jp">
-            <span class="lang-jp">冷凍冷蔵車</span>
-            <span class="lang-en">Refrigerated Truck</span>
-          </div>
-          <div class="fleet-cap-sub">
-            <span class="lang-jp">温度管理が必要な輸送に対応</span>
-            <span class="lang-en">Temperature-controlled transport</span>
-          </div>
+          <div class="fleet-cap-jp"><span class="lang-jp">冷凍冷蔵車</span><span class="lang-en">Refrigerated Truck</span></div>
+          <div class="fleet-cap-sub"><span class="lang-jp">温度管理が必要な輸送に対応</span><span class="lang-en">Temperature-controlled transport</span></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
+<!-- ════ CTA STRIP ══════════════════════════════════════════════ -->
+<section id="cta" aria-labelledby="cta-h">
+  <div class="wrap">
+    <div class="cta-inner">
+      <div class="cta-text fade-up">
+        <div class="cta-ey">CONTACT US</div>
+        <h2 class="cta-h" id="cta-h">
+          <span class="lang-jp">物流のことなら、<br>お気軽にご相談ください</span>
+          <span class="lang-en">For all logistics needs,<br>feel free to contact us</span>
+        </h2>
+        <p class="cta-p">
+          <span class="lang-jp">まずはお気軽にお問い合わせください。担当者が丁寧にご対応いたします。</span>
+          <span class="lang-en">Please don't hesitate to reach out. Our team is ready to assist you promptly.</span>
+        </p>
+      </div>
+      <div class="cta-actions fade-up">
+        <div class="cta-tel">
+          <span class="cta-tel-label"><span class="lang-jp">お電話</span><span class="lang-en">Phone</span></span>
+          <a href="tel:0434602607" class="cta-tel-n">043-460-2607</a>
+        </div>
+        <a href="mailto:info@ssline.co.jp" class="btn-cta">
+          <i class="ti ti-mail" aria-hidden="true"></i>
+          <span class="lang-jp">メールで問い合わせる</span>
+          <span class="lang-en">Send an Email</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -890,62 +997,61 @@ footer { background: var(--gk); padding: 4rem 0 0; }
 <!-- ════ QUICK MENU ═════════════════════════════════════════════ -->
 <section id="quick" aria-label="クイックメニュー">
   <div class="qm-grid" role="list">
-
-    <a href="#" class="qm-card" role="listitem">
+    <a href="#fleet" class="qm-card" role="listitem">
       <div class="qm-ico" aria-hidden="true"><i class="ti ti-truck"></i></div>
       <div class="qm-lp"><span class="lang-jp">車両紹介</span><span class="lang-en">Our Fleet</span></div>
       <div class="qm-le"><span class="lang-jp">Our Fleet</span><span class="lang-en">車両紹介</span></div>
     </a>
-
     <a href="#" class="qm-card" role="listitem">
       <div class="qm-ico" aria-hidden="true"><i class="ti ti-leaf"></i></div>
       <div class="qm-lp"><span class="lang-jp">環境への取り組み</span><span class="lang-en">Ecology</span></div>
       <div class="qm-le"><span class="lang-jp">Ecology</span><span class="lang-en">環境への取り組み</span></div>
     </a>
-
     <a href="#" class="qm-card" role="listitem">
       <div class="qm-ico" aria-hidden="true"><i class="ti ti-shield-check"></i></div>
       <div class="qm-lp"><span class="lang-jp">安全への取り組み</span><span class="lang-en">Safety</span></div>
       <div class="qm-le"><span class="lang-jp">Safety</span><span class="lang-en">安全への取り組み</span></div>
     </a>
-
     <a href="#" class="qm-card" role="listitem">
       <div class="qm-ico" aria-hidden="true"><i class="ti ti-users"></i></div>
       <div class="qm-lp"><span class="lang-jp">採用情報</span><span class="lang-en">Recruitment</span></div>
       <div class="qm-le"><span class="lang-jp">Recruit</span><span class="lang-en">採用情報</span></div>
     </a>
-
-    <a href="#footer" class="qm-card" role="listitem">
+    <a href="#cta" class="qm-card" role="listitem">
       <div class="qm-ico" aria-hidden="true"><i class="ti ti-mail"></i></div>
       <div class="qm-lp"><span class="lang-jp">お問い合せ</span><span class="lang-en">Contact Us</span></div>
       <div class="qm-le"><span class="lang-jp">Contact</span><span class="lang-en">お問い合せ</span></div>
     </a>
-
   </div>
 </section>
+
+</main>
 
 <!-- ════ FOOTER ═════════════════════════════════════════════════ -->
 <footer id="footer" role="contentinfo">
   <div class="wrap">
     <div class="foot-grid">
-
       <div>
         <div class="foot-logo-en">SS LINE</div>
         <div class="foot-logo-jp">株式会社エスエスライン</div>
-        <address class="foot-addr" style="font-style:normal;">
+        <address class="foot-addr">
           〒285-0844 千葉県佐倉市上志津原297-8<br>
           TEL:&nbsp;<a href="tel:0434602607">043-460-2607</a>&emsp;FAX:&nbsp;043-462-2600<br>
           <a href="mailto:info@ssline.co.jp">info@ssline.co.jp</a>
         </address>
       </div>
-
       <div class="foot-links-wrap">
         <div class="foot-top-row">
           <a href="#hero"><span class="lang-jp">ホーム</span><span class="lang-en">Home</span></a>
           <span class="sep" aria-hidden="true">|</span>
           <a href="#information">INFORMATION</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="#services"><span class="lang-jp">事業内容</span><span class="lang-en">Services</span></a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="#fleet"><span class="lang-jp">車両紹介</span><span class="lang-en">Fleet</span></a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="#cta"><span class="lang-jp">お問い合せ</span><span class="lang-en">Contact</span></a>
         </div>
-
         <nav class="foot-nav" aria-label="フッターナビゲーション">
           <div>
             <div class="fcol-h"><span class="lang-jp">会社情報</span><span class="lang-en">About Us</span></div>
@@ -960,18 +1066,17 @@ footer { background: var(--gk); padding: 4rem 0 0; }
           <div>
             <div class="fcol-h"><span class="lang-jp">事業内容</span><span class="lang-en">Services</span></div>
             <div class="fcol-links">
-              <a href="#"><span class="lang-jp">事業内容</span><span class="lang-en">Our Services</span></a>
-            </div>
-            <div class="fcol-h fcol-gap"><span class="lang-jp">環境・安全への取り組み</span><span class="lang-en">Eco &amp; Safety</span></div>
-            <div class="fcol-links">
-              <a href="#"><span class="lang-jp">環境への取り組み</span><span class="lang-en">Ecology</span></a>
-              <a href="#"><span class="lang-jp">安全への取り組み</span><span class="lang-en">Safety</span></a>
+              <a href="#services"><span class="lang-jp">一般貨物輸送</span><span class="lang-en">General Freight</span></a>
+              <a href="#services"><span class="lang-jp">企業間物流</span><span class="lang-en">B2B Logistics</span></a>
+              <a href="#services"><span class="lang-jp">定期配送</span><span class="lang-en">Scheduled Delivery</span></a>
+              <a href="#services"><span class="lang-jp">チャーター便</span><span class="lang-en">Charter Service</span></a>
             </div>
           </div>
           <div>
-            <div class="fcol-h"><span class="lang-jp">車両紹介</span><span class="lang-en">Our Fleet</span></div>
+            <div class="fcol-h"><span class="lang-jp">環境・安全</span><span class="lang-en">Eco &amp; Safety</span></div>
             <div class="fcol-links">
-              <a href="#"><span class="lang-jp">車両紹介</span><span class="lang-en">Fleet</span></a>
+              <a href="#"><span class="lang-jp">環境への取り組み</span><span class="lang-en">Ecology</span></a>
+              <a href="#"><span class="lang-jp">安全への取り組み</span><span class="lang-en">Safety</span></a>
             </div>
             <div class="fcol-h fcol-gap"><span class="lang-jp">採用情報</span><span class="lang-en">Recruitment</span></div>
             <div class="fcol-links">
@@ -980,11 +1085,7 @@ footer { background: var(--gk); padding: 4rem 0 0; }
             </div>
           </div>
           <div>
-            <div class="fcol-h"><span class="lang-jp">お問い合せ</span><span class="lang-en">Contact</span></div>
-            <div class="fcol-links">
-              <a href="#footer"><span class="lang-jp">お問い合せ</span><span class="lang-en">Contact Us</span></a>
-            </div>
-            <div class="fcol-h fcol-gap"><span class="lang-jp">その他</span><span class="lang-en">Other</span></div>
+            <div class="fcol-h"><span class="lang-jp">その他</span><span class="lang-en">Other</span></div>
             <div class="fcol-links">
               <a href="#"><span class="lang-jp">プライバシーポリシー</span><span class="lang-en">Privacy Policy</span></a>
               <a href="#"><span class="lang-jp">サイトポリシー</span><span class="lang-en">Site Policy</span></a>
@@ -994,69 +1095,65 @@ footer { background: var(--gk); padding: 4rem 0 0; }
       </div>
     </div>
   </div>
-
-  <div class="foot-bottom">
-    <p class="foot-copy">Copyright 2016-2026 SSLINE All Rights Reserved.</p>
+  <div class="wrap">
+    <div class="foot-bottom">
+      <p class="foot-copy">Copyright 2016-2026 SSLINE All Rights Reserved.</p>
+      <div class="foot-social" aria-label="ソーシャルメディア">
+        <a href="#" aria-label="Twitter / X"><i class="ti ti-brand-x" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+      </div>
+    </div>
   </div>
 </footer>
 
-<!-- ════ SCRIPT ═════════════════════════════════════════════════ -->
+<button id="totop" aria-label="ページトップへ戻る">
+  <i class="ti ti-arrow-up" aria-hidden="true"></i>
+</button>
+
+<!-- ════ SCRIPT ══════════════════════════════════════════════════ -->
 <script>
 'use strict';
+const root = document.documentElement;
 
-/* ── Navbar scroll shadow ──────────────────────────── */
-const navEl = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  navEl.classList.toggle('scrolled', window.scrollY > 12);
-}, { passive: true });
-
-/* ── Theme toggle ──────────────────────────────────── */
+/* ── Theme ─────────────────────────────────────────────── */
 const themeBtn = document.getElementById('theme-btn');
 const themeI   = document.getElementById('theme-i');
-
 function setTheme(t) {
-  document.documentElement.setAttribute('data-theme', t);
+  root.setAttribute('data-theme', t);
   themeI.className = t === 'dark' ? 'ti ti-sun' : 'ti ti-moon';
   themeBtn.setAttribute('aria-label', t === 'dark' ? 'ライトモードへ切替' : 'ダークモードへ切替');
   try { localStorage.setItem('ssl-theme', t); } catch(e) {}
 }
+themeBtn.addEventListener('click', () =>
+  setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
 
-themeBtn.addEventListener('click', () => {
-  const cur = document.documentElement.getAttribute('data-theme') || 'light';
-  setTheme(cur === 'dark' ? 'light' : 'dark');
-});
-
-/* ── Language toggle ────────────────────────────────── */
+/* ── Language ───────────────────────────────────────────── */
 const langBtn = document.getElementById('lang-btn');
-
 function setLang(l) {
-  document.documentElement.setAttribute('data-lang', l);
-  document.documentElement.lang = l;
+  root.setAttribute('data-lang', l);
+  root.lang = l;
   langBtn.setAttribute('aria-label', l === 'ja' ? 'Switch to English' : '日本語に切替');
   try { localStorage.setItem('ssl-lang', l); } catch(e) {}
 }
+langBtn.addEventListener('click', () =>
+  setLang(root.getAttribute('data-lang') === 'ja' ? 'en' : 'ja'));
 
-langBtn.addEventListener('click', () => {
-  const cur = document.documentElement.getAttribute('data-lang') || 'ja';
-  setLang(cur === 'ja' ? 'en' : 'ja');
-});
+/* ── Navbar scroll ──────────────────────────────────────── */
+const navEl  = document.getElementById('nav');
+const totop  = document.getElementById('totop');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  navEl.classList.toggle('scrolled', y > 12);
+  totop.classList.toggle('show', y > 600);
+}, { passive: true });
+totop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-/* ── Restore saved preferences ─────────────────────── */
-(function init() {
-  try {
-    const savedTheme = localStorage.getItem('ssl-theme');
-    const savedLang  = localStorage.getItem('ssl-lang');
-    if (savedTheme) setTheme(savedTheme);
-    if (savedLang)  setLang(savedLang);
-  } catch(e) {}
-})();
-
-/* ── Hamburger ──────────────────────────────────────── */
+/* ── Hamburger ──────────────────────────────────────────── */
 const hbtn  = document.getElementById('hbtn');
 const mnav  = document.getElementById('mnav');
 const hbtnI = document.getElementById('hbtn-i');
 let mOpen = false;
-
 function setMNav(open) {
   mOpen = open;
   mnav.classList.toggle('show', open);
@@ -1064,22 +1161,22 @@ function setMNav(open) {
   hbtn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
   hbtnI.className = open ? 'ti ti-x' : 'ti ti-menu-2';
 }
-
 hbtn.addEventListener('click', () => setMNav(!mOpen));
-
-mnav.querySelectorAll('a:not([aria-controls])').forEach(a => {
-  a.addEventListener('click', () => setMNav(false));
-});
+mnav.querySelectorAll('a:not([aria-controls])').forEach(a =>
+  a.addEventListener('click', () => setMNav(false)));
 document.addEventListener('click', e => {
   if (mOpen && !navEl.contains(e.target) && !mnav.contains(e.target)) setMNav(false);
 });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { if (mOpen) setMNav(false); }
+});
 
-/* ── Mobile sub-menus ───────────────────────────────── */
+/* ── Mobile sub-menus ───────────────────────────────────── */
 document.querySelectorAll('#mnav [aria-controls]').forEach(trigger => {
   trigger.addEventListener('click', e => {
     e.preventDefault();
-    const dd    = document.getElementById(trigger.getAttribute('aria-controls'));
-    const li    = trigger.closest('.mi');
+    const dd = document.getElementById(trigger.getAttribute('aria-controls'));
+    const li = trigger.closest('.mi');
     const isOpen = dd.classList.contains('show');
     document.querySelectorAll('.mdd.show').forEach(el => {
       el.classList.remove('show');
@@ -1094,10 +1191,20 @@ document.querySelectorAll('#mnav [aria-controls]').forEach(trigger => {
   });
 });
 
-/* ── Hero carousel ──────────────────────────────────── */
-const slides   = Array.from(document.querySelectorAll('.slide'));
-const dots     = Array.from(document.querySelectorAll('.c-dot'));
+/* ── Hero carousel with Ken Burns ───────────────────────── */
+const slides = Array.from(document.querySelectorAll('.slide'));
+const dots   = Array.from(document.querySelectorAll('.c-dot'));
 let cur = 0, carTimer;
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function startKB(slide) {
+  if (reduceMotion) return;
+  const bg = slide.querySelector('.slide-bg');
+  if (!bg) return;
+  bg.style.animation = 'none';
+  bg.offsetHeight; // force reflow to restart
+  bg.style.animation = '';
+}
 
 function goTo(n) {
   slides[cur].classList.remove('active');
@@ -1107,18 +1214,54 @@ function goTo(n) {
   slides[cur].classList.add('active');
   dots[cur].classList.add('on');
   dots[cur].setAttribute('aria-selected', 'true');
+  startKB(slides[cur]);
 }
-function startCar() { carTimer = setInterval(() => goTo(cur + 1), 4000); }
-function resetCar()  { clearInterval(carTimer); startCar(); }
+function startCar() {
+  if (reduceMotion) return;
+  carTimer = setInterval(() => goTo(cur + 1), 5000);
+}
+function resetCar() { clearInterval(carTimer); startCar(); }
 
 dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.n); resetCar(); }));
 document.getElementById('cprev').addEventListener('click', () => { goTo(cur - 1); resetCar(); });
 document.getElementById('cnext').addEventListener('click', () => { goTo(cur + 1); resetCar(); });
-
 const carEl = document.querySelector('.carousel');
 carEl.addEventListener('mouseenter', () => clearInterval(carTimer));
 carEl.addEventListener('mouseleave', startCar);
+startKB(slides[0]);
 startCar();
+
+/* ── Stats counter ──────────────────────────────────────── */
+function countUp(el) {
+  if (reduceMotion) return;
+  const target = +el.dataset.count;
+  if (!target) return;
+  const suffix = el.dataset.suffix || '';
+  const dur = 1800;
+  const start = performance.now();
+  function update(now) {
+    const p = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(ease * target).toLocaleString('ja-JP') + suffix;
+    if (p < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+/* ── Scroll animations + stats trigger ─────────────────── */
+const fadeObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in-view');
+      const counter = e.target.querySelector('[data-count]') || (e.target.dataset.count ? e.target : null);
+      if (e.target.dataset.count) countUp(e.target);
+      else e.target.querySelectorAll('[data-count]').forEach(countUp);
+      fadeObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
 </script>
 </body>
 </html>

@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link rel="dns-prefetch" href="https://unpkg.com" />
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1600&q=80&auto=format&fit=crop" />
+  <link rel="preload" as="image" href="https://ssline.co.jp/images/topslide-1.png" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/@tabler/icons-webfont/dist/tabler-icons.min.css" />
   <style>
@@ -354,21 +354,35 @@ section,[id]{scroll-margin-top:var(--nav-h)}
    FLEET GALLERY
 ═══════════════════════════════════════════════════════════ */
 #fleet{padding:5rem 0;background:var(--bg);transition:background-color .3s ease}
-.fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}
-.fleet-card{
-  position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:var(--r);
-  background:var(--gm);
+.fleet-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:220px;gap:1rem;margin-top:2.5rem;
 }
+.fleet-card{
+  position:relative;overflow:hidden;border-radius:var(--r);
+  background:var(--gk);
+}
+.fleet-card:first-child{grid-column:span 2}
 .fleet-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease}
-.fleet-card:hover img{transform:scale(1.06)}
+.fleet-card:hover img{transform:scale(1.05)}
 .fleet-cap{
   position:absolute;bottom:0;left:0;right:0;
-  background:linear-gradient(transparent,rgba(7,31,23,.92));
-  padding:2.5rem 1rem 1rem;
+  background:linear-gradient(transparent,rgba(7,31,23,.95));
+  padding:2.75rem 1rem 0.875rem;
 }
-.fleet-cap-en{font-size:.62rem;font-weight:800;color:var(--mint);text-transform:uppercase;letter-spacing:.1em}
-.fleet-cap-jp{font-size:.9375rem;font-weight:700;color:#fff;margin-top:.125rem}
-.fleet-cap-sub{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.2rem}
+.fleet-cap-type{
+  font-size:.6rem;font-weight:800;color:var(--mint);
+  text-transform:uppercase;letter-spacing:.1em;
+}
+.fleet-cap-jp{font-size:.9375rem;font-weight:700;color:#fff;margin-top:.1rem;line-height:1.25}
+.fleet-cap-en{font-size:.68rem;color:rgba(255,255,255,.5);margin-top:.15rem}
+.fleet-cap-make{
+  display:inline-flex;align-items:center;gap:.3rem;
+  font-size:.62rem;font-weight:700;color:rgba(74,222,154,.65);
+  margin-top:.375rem;border-top:0.5px solid rgba(74,222,154,.15);
+  padding-top:.375rem;
+}
+.fleet-cap-load{font-size:.62rem;color:rgba(255,255,255,.4);margin-left:auto}
 
 /* ═══════════════════════════════════════════════════════════
    CTA STRIP
@@ -504,6 +518,8 @@ footer{background:var(--gk);padding:4rem 0 0}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .stat-item:nth-child(2){border-right:none}
   .stat-item:nth-child(3){border-top:var(--bw) solid rgba(74,222,154,.14)}
+  .fleet-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
+  .fleet-card:first-child{grid-column:span 2}
 }
 @media(max-width:640px){
   .wrap{padding:0 1.125rem}
@@ -516,14 +532,16 @@ footer{background:var(--gk);padding:4rem 0 0}
   #information,#services,#fleet{padding:3.5rem 0}
   .foot-nav{grid-template-columns:1fr 1fr;gap:1.5rem}
   .c-arrow{display:none}
-  .fleet-grid{grid-template-columns:1fr 1fr}
+  .fleet-grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
+  .fleet-card:first-child{grid-column:span 2}
   .cta-inner{flex-direction:column;align-items:flex-start}
   .cta-actions{width:100%;justify-content:flex-start}
   .cta-tel{align-items:flex-start}
 }
 @media(max-width:400px){
   .foot-nav{grid-template-columns:1fr}
-  .fleet-grid{grid-template-columns:1fr}
+  .fleet-grid{grid-template-columns:1fr;grid-auto-rows:200px}
+  .fleet-card:first-child{grid-column:span 1}
   .stats-grid{grid-template-columns:1fr 1fr}
 }
   </style>
@@ -646,7 +664,7 @@ footer{background:var(--gk);padding:4rem 0 0}
   <div class="carousel" aria-live="polite" aria-atomic="false">
 
     <div class="slide active" role="group" aria-roledescription="スライド" aria-label="1 / 4">
-      <div class="slide-bg" style="background-image:linear-gradient(rgba(7,31,23,.72),rgba(10,61,46,.82)),url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1600&q=80&auto=format&fit=crop')"></div>
+      <div class="slide-bg" style="background-image:linear-gradient(rgba(7,31,23,.55),rgba(10,61,46,.68)),url('https://ssline.co.jp/images/topslide-1.png');background-size:cover;background-position:center top;"></div>
       <div class="slide-grid" aria-hidden="true"></div>
       <div class="wrap slide-body">
         <div class="slide-pill"><i class="ti ti-truck" aria-hidden="true"></i>
@@ -662,7 +680,7 @@ footer{background:var(--gk);padding:4rem 0 0}
     </div>
 
     <div class="slide" role="group" aria-roledescription="スライド" aria-label="2 / 4">
-      <div class="slide-bg" style="background-image:linear-gradient(rgba(7,31,23,.72),rgba(10,61,46,.82)),url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80&auto=format&fit=crop')"></div>
+      <div class="slide-bg" style="background-image:linear-gradient(rgba(7,31,23,.55),rgba(10,61,46,.68)),url('https://ssline.co.jp/images/topslide-2.png');background-size:cover;background-position:center top;"></div>
       <div class="slide-grid" aria-hidden="true"></div>
       <div class="wrap slide-body">
         <div class="slide-pill"><i class="ti ti-users" aria-hidden="true"></i>
@@ -685,7 +703,7 @@ footer{background:var(--gk);padding:4rem 0 0}
     </div>
 
     <div class="slide" role="group" aria-roledescription="スライド" aria-label="3 / 4">
-      <div class="slide-bg" style="background-image:linear-gradient(rgba(7,31,23,.72),rgba(10,61,46,.82)),url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600&q=80&auto=format&fit=crop')"></div>
+      <div class="slide-bg" style="background-image:linear-gradient(rgba(7,31,23,.55),rgba(10,61,46,.68)),url('https://ssline.co.jp/images/topslide-3.png');background-size:cover;background-position:center top;"></div>
       <div class="slide-grid" aria-hidden="true"></div>
       <div class="wrap slide-body">
         <div class="slide-pill"><i class="ti ti-shield-check" aria-hidden="true"></i>
@@ -704,7 +722,7 @@ footer{background:var(--gk);padding:4rem 0 0}
     </div>
 
     <div class="slide" role="group" aria-roledescription="スライド" aria-label="4 / 4">
-      <div class="slide-bg" style="background-image:linear-gradient(rgba(7,31,23,.72),rgba(10,61,46,.82)),url('https://images.unsplash.com/photo-1485575301487-25aa7ecaad9f?w=1600&q=80&auto=format&fit=crop')"></div>
+      <div class="slide-bg" style="background-image:linear-gradient(rgba(7,31,23,.55),rgba(10,61,46,.68)),url('https://ssline.co.jp/images/topslide-4.png');background-size:cover;background-position:center top;"></div>
       <div class="slide-grid" aria-hidden="true"></div>
       <div class="wrap slide-body">
         <div class="slide-pill"><i class="ti ti-heart" aria-hidden="true"></i>Heart to Heart</div>
@@ -936,30 +954,105 @@ footer{background:var(--gk);padding:4rem 0 0}
       </div>
     </div>
     <div class="fleet-grid">
+
+      <!-- 1 · Featured — Large Wing (spans 2 cols) -->
       <div class="fleet-card fade-up">
-        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80&auto=format&fit=crop" alt="大型ウィング車" loading="lazy" />
+        <img src="https://ssline.co.jp/images/trucks_ogata_wing.jpg" alt="大型ウィング車" loading="eager" />
         <div class="fleet-cap">
-          <div class="fleet-cap-en">Large Wing</div>
+          <div class="fleet-cap-type">Large · Wing Body</div>
           <div class="fleet-cap-jp"><span class="lang-jp">大型ウィング車</span><span class="lang-en">Large Wing Truck</span></div>
-          <div class="fleet-cap-sub"><span class="lang-jp">ISUZU · 最大積載量 20t</span><span class="lang-en">ISUZU · Max load 20t</span></div>
+          <div class="fleet-cap-en"><span class="lang-jp">ウィング開閉式荷台 / フォークリフト対応</span><span class="lang-en">Side-opening wing body · forklift compatible</span></div>
+          <div class="fleet-cap-make">
+            <i class="ti ti-certificate" aria-hidden="true"></i> ISUZU
+            <span class="fleet-cap-load"><span class="lang-jp">積載 最大20t</span><span class="lang-en">Max load 20t</span></span>
+          </div>
         </div>
       </div>
+
+      <!-- 2 · Large Flatbed -->
       <div class="fleet-card fade-up">
-        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format&fit=crop" alt="中型トラック" loading="lazy" />
+        <img src="https://ssline.co.jp/images/trucks_ogata_hira.jpg" alt="大型平車" loading="lazy" />
         <div class="fleet-cap">
-          <div class="fleet-cap-en">Medium Truck</div>
-          <div class="fleet-cap-jp"><span class="lang-jp">中型トラック</span><span class="lang-en">Medium Truck</span></div>
-          <div class="fleet-cap-sub"><span class="lang-jp">多目的な中距離輸送に対応</span><span class="lang-en">Versatile mid-range transport</span></div>
+          <div class="fleet-cap-type">Large · Flatbed</div>
+          <div class="fleet-cap-jp"><span class="lang-jp">大型平車</span><span class="lang-en">Large Flatbed</span></div>
+          <div class="fleet-cap-en"><span class="lang-jp">鋼材・機械など重量物輸送に対応</span><span class="lang-en">For steel, machinery &amp; heavy cargo</span></div>
+          <div class="fleet-cap-make">
+            <i class="ti ti-certificate" aria-hidden="true"></i> ISUZU
+            <span class="fleet-cap-load"><span class="lang-jp">積載 最大20t</span><span class="lang-en">Max load 20t</span></span>
+          </div>
         </div>
       </div>
+
+      <!-- 3 · 7t Wing -->
       <div class="fleet-card fade-up">
-        <img src="https://images.unsplash.com/photo-1570636428499-12e64ad3e2e8?w=800&q=80&auto=format&fit=crop" alt="冷凍冷蔵車" loading="lazy" />
+        <img src="https://ssline.co.jp/images/trucks_7t_wing.jpg" alt="7tウィング車" loading="lazy" />
         <div class="fleet-cap">
-          <div class="fleet-cap-en">Refrigerated</div>
-          <div class="fleet-cap-jp"><span class="lang-jp">冷凍冷蔵車</span><span class="lang-en">Refrigerated Truck</span></div>
-          <div class="fleet-cap-sub"><span class="lang-jp">温度管理が必要な輸送に対応</span><span class="lang-en">Temperature-controlled transport</span></div>
+          <div class="fleet-cap-type">Mid · Wing Body</div>
+          <div class="fleet-cap-jp"><span class="lang-jp">7tウィング車</span><span class="lang-en">7t Wing Truck</span></div>
+          <div class="fleet-cap-en"><span class="lang-jp">パレット積み対応 / 雨天荷物保護</span><span class="lang-en">Pallet loading · weather protection</span></div>
+          <div class="fleet-cap-make">
+            <i class="ti ti-certificate" aria-hidden="true"></i>
+            <span class="fleet-cap-load"><span class="lang-jp">積載 7t</span><span class="lang-en">Max load 7t</span></span>
+          </div>
         </div>
       </div>
+
+      <!-- 4 · 7t Crane -->
+      <div class="fleet-card fade-up">
+        <img src="https://ssline.co.jp/images/trucks_7t_crane.jpg" alt="7tクレーン車" loading="lazy" />
+        <div class="fleet-cap">
+          <div class="fleet-cap-type">Mid · Crane</div>
+          <div class="fleet-cap-jp"><span class="lang-jp">7tクレーン車</span><span class="lang-en">7t Crane Truck</span></div>
+          <div class="fleet-cap-en"><span class="lang-jp">ユニッククレーン搭載 / 自力荷役</span><span class="lang-en">Unic crane · self-loading capability</span></div>
+          <div class="fleet-cap-make">
+            <i class="ti ti-certificate" aria-hidden="true"></i>
+            <span class="fleet-cap-load"><span class="lang-jp">積載 7t · クレーン付</span><span class="lang-en">7t + crane</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 · 4t Crane -->
+      <div class="fleet-card fade-up">
+        <img src="https://ssline.co.jp/images/trucks_4t_crane.jpg" alt="4tクレーン車" loading="lazy" />
+        <div class="fleet-cap">
+          <div class="fleet-cap-type">Mid · Crane</div>
+          <div class="fleet-cap-jp"><span class="lang-jp">4tクレーン車</span><span class="lang-en">4t Crane Truck</span></div>
+          <div class="fleet-cap-en"><span class="lang-jp">小回りが利くクレーン車 / 市街地対応</span><span class="lang-en">Compact crane for urban delivery</span></div>
+          <div class="fleet-cap-make">
+            <i class="ti ti-certificate" aria-hidden="true"></i>
+            <span class="fleet-cap-load"><span class="lang-jp">積載 4t · クレーン付</span><span class="lang-en">4t + crane</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 · 3t Flatbed -->
+      <div class="fleet-card fade-up">
+        <img src="https://ssline.co.jp/images/trucks_3t_hira.jpg" alt="3t平車" loading="lazy" />
+        <div class="fleet-cap">
+          <div class="fleet-cap-type">Light · Flatbed</div>
+          <div class="fleet-cap-jp"><span class="lang-jp">3t平車</span><span class="lang-en">3t Flatbed</span></div>
+          <div class="fleet-cap-en"><span class="lang-jp">近距離配送 / 小口貨物対応</span><span class="lang-en">Short-haul &amp; small-lot freight</span></div>
+          <div class="fleet-cap-make">
+            <i class="ti ti-certificate" aria-hidden="true"></i>
+            <span class="fleet-cap-load"><span class="lang-jp">積載 3t</span><span class="lang-en">Max load 3t</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 · 2t Flatbed -->
+      <div class="fleet-card fade-up">
+        <img src="https://ssline.co.jp/images/trucks_2t_hira.jpg" alt="2t平車" loading="lazy" />
+        <div class="fleet-cap">
+          <div class="fleet-cap-type">Light · Flatbed</div>
+          <div class="fleet-cap-jp"><span class="lang-jp">2t平車</span><span class="lang-en">2t Flatbed</span></div>
+          <div class="fleet-cap-en"><span class="lang-jp">小口・急送 / 狭路対応</span><span class="lang-en">Express &amp; narrow-road delivery</span></div>
+          <div class="fleet-cap-make">
+            <i class="ti ti-certificate" aria-hidden="true"></i>
+            <span class="fleet-cap-load"><span class="lang-jp">積載 2t</span><span class="lang-en">Max load 2t</span></span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

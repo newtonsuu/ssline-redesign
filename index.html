@@ -385,6 +385,82 @@ section,[id]{scroll-margin-top:var(--nav-h)}
 .fleet-cap-load{font-size:.62rem;color:rgba(255,255,255,.4);margin-left:auto}
 
 /* ═══════════════════════════════════════════════════════════
+   ECOLOGY
+═══════════════════════════════════════════════════════════ */
+#ecology{padding:5rem 0;background:var(--bg-alt);transition:background-color .3s ease}
+.eco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.eco-card{
+  background:var(--bg);border:var(--bw) solid var(--brd);border-radius:var(--r);
+  padding:1.75rem;transition:background .3s ease,border-color .3s ease,box-shadow var(--ease);
+}
+.eco-card:hover{box-shadow:0 4px 20px rgba(10,61,46,.08)}
+[data-theme="dark"] .eco-card{background:rgba(74,222,154,.03)}
+[data-theme="dark"] .eco-card:hover{box-shadow:0 4px 20px rgba(74,222,154,.06)}
+.eco-ico{
+  width:48px;height:48px;border-radius:var(--r);
+  background:var(--cat-bg);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;
+  transition:background var(--ease);
+}
+.eco-ico i{font-size:1.375rem;color:var(--ey-c)}
+.eco-h{font-size:.9375rem;font-weight:700;color:var(--t1);margin-bottom:.5rem;transition:color .3s ease}
+.eco-p{font-size:.8125rem;color:var(--t2);line-height:1.75;transition:color .3s ease}
+
+/* ═══════════════════════════════════════════════════════════
+   SAFETY
+═══════════════════════════════════════════════════════════ */
+#safety{padding:5rem 0;background:var(--bg);transition:background-color .3s ease}
+.saf-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2.5rem}
+.saf-item{
+  display:flex;align-items:flex-start;gap:1rem;
+  padding:1.5rem;border-left:3px solid var(--mint);
+  background:var(--bg-alt);border-radius:0 var(--r) var(--r) 0;
+  transition:background .3s ease;
+}
+.saf-item:hover{background:var(--ni-hov)}
+.saf-ico{font-size:1.375rem;color:var(--mint);flex-shrink:0;margin-top:.1rem}
+.saf-h{font-size:.9375rem;font-weight:700;color:var(--t1);margin-bottom:.35rem;transition:color .3s ease}
+.saf-p{font-size:.8125rem;color:var(--t2);line-height:1.68;transition:color .3s ease}
+
+/* ═══════════════════════════════════════════════════════════
+   RECRUITMENT
+═══════════════════════════════════════════════════════════ */
+#recruit{padding:5rem 0;background:var(--gd)}
+.recruit-intro{font-size:.9375rem;color:rgba(255,255,255,.62);max-width:640px;margin-top:.5rem;line-height:1.75}
+.job-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem}
+.job-card{
+  background:rgba(255,255,255,.04);border:var(--bw) solid rgba(74,222,154,.14);border-radius:var(--r);overflow:hidden;
+}
+.job-card-hd{
+  padding:1rem 1.25rem;background:rgba(74,222,154,.08);
+  border-bottom:var(--bw) solid rgba(74,222,154,.14);
+  display:flex;align-items:center;gap:.625rem;
+}
+.job-card-hd i{font-size:1.125rem;color:var(--mint)}
+.job-card-title{font-size:.9375rem;font-weight:700;color:#fff;line-height:1.25}
+.job-card-badge{
+  margin-left:auto;display:inline-flex;align-items:center;
+  padding:.2rem .55rem;background:rgba(74,222,154,.15);color:var(--mint);
+  font-size:.62rem;font-weight:800;border-radius:2px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;
+}
+.job-rows{padding:.25rem 0}
+.job-row{
+  display:grid;grid-template-columns:120px 1fr;gap:.5rem;
+  padding:.625rem 1.25rem;border-bottom:var(--bw) solid rgba(74,222,154,.07);font-size:.8125rem;
+}
+.job-row:last-child{border-bottom:none}
+.job-row-label{color:rgba(255,255,255,.38);font-weight:600}
+.job-row-value{color:rgba(255,255,255,.72)}
+.recruit-cta{margin-top:2.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.recruit-note{font-size:.78rem;color:rgba(255,255,255,.38)}
+.btn-recruit{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.75rem 1.75rem;background:var(--mint);color:var(--gd);
+  font-size:.9375rem;font-weight:700;border-radius:var(--r);
+  transition:background var(--ease),transform var(--ease);
+}
+.btn-recruit:hover{background:var(--mintd);transform:translateY(-2px)}
+
+/* ═══════════════════════════════════════════════════════════
    CTA STRIP
 ═══════════════════════════════════════════════════════════ */
 #cta{
@@ -520,6 +596,9 @@ footer{background:var(--gk);padding:4rem 0 0}
   .stat-item:nth-child(3){border-top:var(--bw) solid rgba(74,222,154,.14)}
   .fleet-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
   .fleet-card:first-child{grid-column:span 2}
+  .eco-grid{grid-template-columns:1fr 1fr}
+  .saf-grid{grid-template-columns:1fr}
+  .job-grid{grid-template-columns:1fr}
 }
 @media(max-width:640px){
   .wrap{padding:0 1.125rem}
@@ -529,7 +608,8 @@ footer{background:var(--gk);padding:4rem 0 0}
   .svc-grid{grid-template-columns:1fr}
   .qm-card{flex:1 1 calc(50% - 1px)}
   .qm-card:nth-child(5){flex:1 1 100%}
-  #information,#services,#fleet{padding:3.5rem 0}
+  #information,#services,#fleet,#ecology,#safety,#recruit{padding:3.5rem 0}
+  .eco-grid{grid-template-columns:1fr}
   .foot-nav{grid-template-columns:1fr 1fr;gap:1.5rem}
   .c-arrow{display:none}
   .fleet-grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
@@ -580,8 +660,8 @@ footer{background:var(--gk);padding:4rem 0 0}
           <i class="ti ti-chevron-down" aria-hidden="true"></i>
         </a>
         <ul class="dd" role="menu">
-          <li><a href="#" role="menuitem"><span class="lang-jp">環境への取り組み</span><span class="lang-en">Ecology</span></a></li>
-          <li><a href="#" role="menuitem"><span class="lang-jp">安全への取り組み</span><span class="lang-en">Safety</span></a></li>
+          <li><a href="#ecology" role="menuitem"><span class="lang-jp">環境への取り組み</span><span class="lang-en">Ecology</span></a></li>
+          <li><a href="#safety" role="menuitem"><span class="lang-jp">安全への取り組み</span><span class="lang-en">Safety</span></a></li>
         </ul>
       </li>
       <li class="nav-item"><a href="#fleet"><span class="lang-jp">車両紹介</span><span class="lang-en">Our Fleet</span></a></li>
@@ -591,8 +671,8 @@ footer{background:var(--gk);padding:4rem 0 0}
           <i class="ti ti-chevron-down" aria-hidden="true"></i>
         </a>
         <ul class="dd" role="menu">
-          <li><a href="#" role="menuitem"><span class="lang-jp">求人情報</span><span class="lang-en">Job Openings</span></a></li>
-          <li><a href="#" role="menuitem"><span class="lang-jp">スタッフの声</span><span class="lang-en">Staff Voices</span></a></li>
+          <li><a href="#recruit" role="menuitem"><span class="lang-jp">求人情報</span><span class="lang-en">Job Openings</span></a></li>
+          <li><a href="#recruit" role="menuitem"><span class="lang-jp">スタッフの声</span><span class="lang-en">Staff Voices</span></a></li>
         </ul>
       </li>
       <li class="nav-item"><a href="#cta"><span class="lang-jp">お問い合せ</span><span class="lang-en">Contact</span></a></li>
@@ -638,8 +718,8 @@ footer{background:var(--gk);padding:4rem 0 0}
         <i class="ti ti-chevron-right" aria-hidden="true"></i>
       </a>
       <div class="mdd" id="mdd-2">
-        <a href="#"><span class="lang-jp">環境への取り組み</span><span class="lang-en">Ecology</span></a>
-        <a href="#"><span class="lang-jp">安全への取り組み</span><span class="lang-en">Safety</span></a>
+        <a href="#ecology"><span class="lang-jp">環境への取り組み</span><span class="lang-en">Ecology</span></a>
+        <a href="#safety"><span class="lang-jp">安全への取り組み</span><span class="lang-en">Safety</span></a>
       </div>
     </li>
     <li class="mi"><a href="#fleet"><span class="lang-jp">車両紹介</span><span class="lang-en">Our Fleet</span></a></li>
@@ -649,8 +729,8 @@ footer{background:var(--gk);padding:4rem 0 0}
         <i class="ti ti-chevron-right" aria-hidden="true"></i>
       </a>
       <div class="mdd" id="mdd-3">
-        <a href="#"><span class="lang-jp">求人情報</span><span class="lang-en">Job Openings</span></a>
-        <a href="#"><span class="lang-jp">スタッフの声</span><span class="lang-en">Staff Voices</span></a>
+        <a href="#recruit"><span class="lang-jp">求人情報</span><span class="lang-en">Job Openings</span></a>
+        <a href="#recruit"><span class="lang-jp">スタッフの声</span><span class="lang-en">Staff Voices</span></a>
       </div>
     </li>
     <li class="mi"><a href="#cta"><span class="lang-jp">お問い合せ</span><span class="lang-en">Contact</span></a></li>
@@ -1057,6 +1137,199 @@ footer{background:var(--gk);padding:4rem 0 0}
   </div>
 </section>
 
+<!-- ════ ECOLOGY ════════════════════════════════════════════════ -->
+<section id="ecology" aria-labelledby="eco-h2">
+  <div class="wrap">
+    <div class="sec-hd fade-up">
+      <div class="sec-ey">ECOLOGY</div>
+      <h2 class="sec-h2" id="eco-h2">
+        <span class="lang-jp">環境への取り組み</span><span class="lang-en">Environmental Initiatives</span>
+      </h2>
+      <div class="sec-sub">
+        <span class="lang-jp">地球と地域社会のために、物流から環境を守る</span>
+        <span class="lang-en">Protecting the environment through logistics, for our planet and local communities</span>
+      </div>
+    </div>
+    <div class="eco-grid">
+      <div class="eco-card fade-up">
+        <div class="eco-ico"><i class="ti ti-leaf" aria-hidden="true"></i></div>
+        <h3 class="eco-h"><span class="lang-jp">エコドライブの推進</span><span class="lang-en">Eco-Driving Promotion</span></h3>
+        <p class="eco-p">
+          <span class="lang-jp">急加速・急ブレーキを控えた省燃費運転をドライバー全員に徹底。デジタコによる走行データを活用し、燃料消費と CO₂排出量の継続的な削減を推進しています。</span>
+          <span class="lang-en">All drivers are trained in fuel-efficient driving — avoiding sudden acceleration and braking. We use digital tachograph data to continuously reduce fuel consumption and CO₂ emissions.</span>
+        </p>
+      </div>
+      <div class="eco-card fade-up">
+        <div class="eco-ico"><i class="ti ti-engine-off" aria-hidden="true"></i></div>
+        <h3 class="eco-h"><span class="lang-jp">アイドリングストップの徹底</span><span class="lang-en">Strict Idling Stop Policy</span></h3>
+        <p class="eco-p">
+          <span class="lang-jp">荷待ち・休憩時のエンジンアイドリングを原則禁止。1分以上停車する場合はエンジンを停止するよう全車両・全ドライバーに指導しています。</span>
+          <span class="lang-en">Engine idling is prohibited during loading waits and breaks. All vehicles and drivers are instructed to turn off the engine whenever stopped for more than one minute.</span>
+        </p>
+      </div>
+      <div class="eco-card fade-up">
+        <div class="eco-ico"><i class="ti ti-recycle" aria-hidden="true"></i></div>
+        <h3 class="eco-h"><span class="lang-jp">低公害車両の計画的導入</span><span class="lang-en">Phased Introduction of Low-Emission Vehicles</span></h3>
+        <p class="eco-p">
+          <span class="lang-jp">排出ガス規制適合車・低燃費モデルへの計画的な更新を推進。新型ISUZU車輌の導入など、環境負荷を低減する車両更新を継続的に行っています。</span>
+          <span class="lang-en">We are steadily replacing our fleet with vehicles that meet emission regulations and offer better fuel economy, including new ISUZU models, to reduce our environmental footprint.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SAFETY ═════════════════════════════════════════════════ -->
+<section id="safety" aria-labelledby="saf-h2">
+  <div class="wrap">
+    <div class="sec-hd fade-up">
+      <div class="sec-ey">SAFETY</div>
+      <h2 class="sec-h2" id="saf-h2">
+        <span class="lang-jp">安全への取り組み</span><span class="lang-en">Safety Initiatives</span>
+      </h2>
+      <div class="sec-sub">
+        <span class="lang-jp">「安全第一」を経営理念の柱とし、全社一丸で取り組んでいます</span>
+        <span class="lang-en">"Safety first" is a core pillar of our management philosophy — a company-wide commitment</span>
+      </div>
+    </div>
+    <div class="saf-grid">
+      <div class="saf-item fade-up">
+        <i class="ti ti-test-pipe saf-ico" aria-hidden="true"></i>
+        <div>
+          <h3 class="saf-h"><span class="lang-jp">乗務前後のアルコールチェック</span><span class="lang-en">Pre/Post-Shift Alcohol Testing</span></h3>
+          <p class="saf-p">
+            <span class="lang-jp">全乗務員を対象に、乗務前・乗務後にアルコール検知器を用いた点呼を実施。飲酒運転を根絶するためのゼロトレランス方針を徹底しています。</span>
+            <span class="lang-en">All crew members undergo breath alcohol testing before and after every shift. We enforce a zero-tolerance policy to completely eliminate drunk driving.</span>
+          </p>
+        </div>
+      </div>
+      <div class="saf-item fade-up">
+        <i class="ti ti-device-desktop-analytics saf-ico" aria-hidden="true"></i>
+        <div>
+          <h3 class="saf-h"><span class="lang-jp">デジタコ・ドライブレコーダー全車搭載</span><span class="lang-en">Dashcam &amp; Digital Tachograph on All Vehicles</span></h3>
+          <p class="saf-p">
+            <span class="lang-jp">全車両にデジタルタコグラフとドライブレコーダーを搭載。走行データをリアルタイムで収集・分析し、危険運転の早期発見と運転指導に活用しています。</span>
+            <span class="lang-en">All vehicles are equipped with digital tachographs and dashcams. Driving data is collected and analyzed in real time for early detection of hazardous driving and ongoing driver coaching.</span>
+          </p>
+        </div>
+      </div>
+      <div class="saf-item fade-up">
+        <i class="ti ti-school saf-ico" aria-hidden="true"></i>
+        <div>
+          <h3 class="saf-h"><span class="lang-jp">定期的な安全運転教育</span><span class="lang-en">Regular Safe Driving Training</span></h3>
+          <p class="saf-p">
+            <span class="lang-jp">社内安全会議・ヒヤリハット事例共有・外部講師による研修を定期的に実施。ドライバー一人ひとりの安全意識を高め、事故ゼロを目指しています。</span>
+            <span class="lang-en">We regularly conduct internal safety meetings, near-miss case sharing sessions, and training with external instructors to raise each driver's safety awareness and achieve zero accidents.</span>
+          </p>
+        </div>
+      </div>
+      <div class="saf-item fade-up">
+        <i class="ti ti-clipboard-check saf-ico" aria-hidden="true"></i>
+        <div>
+          <h3 class="saf-h"><span class="lang-jp">運行管理者による適正な運行管理</span><span class="lang-en">Proper Fleet Management by Certified Supervisors</span></h3>
+          <p class="saf-p">
+            <span class="lang-jp">国家資格を持つ運行管理者が、過労・疾病・その他の理由による安全運転への影響を日々確認。法令に基づいた適切な点呼・指示を行っています。</span>
+            <span class="lang-en">Nationally certified fleet supervisors check daily for fatigue, illness, or other factors affecting safe driving, and carry out legally compliant roll calls and instructions.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ RECRUITMENT ════════════════════════════════════════════ -->
+<section id="recruit" aria-labelledby="rec-h2">
+  <div class="wrap">
+    <div class="sec-hd fade-up">
+      <div class="sec-ey" style="color:rgba(74,222,154,.65)">RECRUIT</div>
+      <h2 class="sec-h2" id="rec-h2" style="color:#fff">
+        <span class="lang-jp">採用情報</span><span class="lang-en">Job Openings</span>
+      </h2>
+      <p class="recruit-intro">
+        <span class="lang-jp">「運転が好き」という気持ちを大切に。経験・未経験問わず、やる気のある方を歓迎します。千葉県佐倉市を拠点に、一緒に物流の未来を創っていきましょう。</span>
+        <span class="lang-en">We value your passion for driving above all. Experience or not — if you have drive, we want to meet you. Join us at our Sakura City, Chiba base and help shape the future of logistics.</span>
+      </p>
+    </div>
+    <div class="job-grid">
+      <!-- Job 1 -->
+      <div class="job-card fade-up">
+        <div class="job-card-hd">
+          <i class="ti ti-truck" aria-hidden="true"></i>
+          <div>
+            <div class="job-card-title"><span class="lang-jp">大型トラックドライバー</span><span class="lang-en">Large Truck Driver</span></div>
+          </div>
+          <span class="job-card-badge"><span class="lang-jp">未経験OK</span><span class="lang-en">No exp. OK</span></span>
+        </div>
+        <div class="job-rows">
+          <div class="job-row">
+            <span class="job-row-label"><span class="lang-jp">勤務地</span><span class="lang-en">Location</span></span>
+            <span class="job-row-value"><span class="lang-jp">千葉県佐倉市上志津原297-8</span><span class="lang-en">Kamishizuhara 297-8, Sakura City, Chiba</span></span>
+          </div>
+          <div class="job-row">
+            <span class="job-row-label"><span class="lang-jp">給与</span><span class="lang-en">Salary</span></span>
+            <span class="job-row-value"><span class="lang-jp">月給 220,000円〜（経験・資格考慮）</span><span class="lang-en">From ¥220,000 / month (based on experience)</span></span>
+          </div>
+          <div class="job-row">
+            <span class="job-row-label"><span class="lang-jp">勤務時間</span><span class="lang-en">Hours</span></span>
+            <span class="job-row-value"><span class="lang-jp">シフト制（実働8時間）</span><span class="lang-en">Shift system (8 hrs / day)</span></span>
+          </div>
+          <div class="job-row">
+            <span class="job-row-label"><span class="lang-jp">休日</span><span class="lang-en">Days Off</span></span>
+            <span class="job-row-value"><span class="lang-jp">週休2日制</span><span class="lang-en">2 days off per week</span></span>
+          </div>
+          <div class="job-row">
+            <span class="job-row-label"><span class="lang-jp">資格</span><span class="lang-en">Licence</span></span>
+            <span class="job-row-value"><span class="lang-jp">大型自動車免許（AT限定不可）</span><span class="lang-en">Large vehicle licence (no AT-only)</span></span>
+          </div>
+        </div>
+      </div>
+      <!-- Job 2 -->
+      <div class="job-card fade-up">
+        <div class="job-card-hd">
+          <i class="ti ti-truck" aria-hidden="true"></i>
+          <div>
+            <div class="job-card-title"><span class="lang-jp">中型トラックドライバー</span><span class="lang-en">Medium Truck Driver</span></div>
+          </div>
+          <span class="job-card-badge"><span class="lang-jp">未経験OK</span><span class="lang-en">No exp. OK</span></span>
+        </div>
+        <div class="job-rows">
+          <div class="job-row">
+            <span class="job-row-label"><span class="lang-jp">勤務地</span><span class="lang-en">Location</span></span>
+            <span class="job-row-value"><span class="lang-jp">千葉県佐倉市上志津原297-8</span><span class="lang-en">Kamishizuhara 297-8, Sakura City, Chiba</span></span>
+          </div>
+          <div class="job-row">
+            <span class="job-row-label"><span class="lang-jp">給与</span><span class="lang-en">Salary</span></span>
+            <span class="job-row-value"><span class="lang-jp">月給 200,000円〜（経験・資格考慮）</span><span class="lang-en">From ¥200,000 / month (based on experience)</span></span>
+          </div>
+          <div class="job-row">
+            <span class="job-row-label"><span class="lang-jp">勤務時間</span><span class="lang-en">Hours</span></span>
+            <span class="job-row-value"><span class="lang-jp">シフト制（実働8時間）</span><span class="lang-en">Shift system (8 hrs / day)</span></span>
+          </div>
+          <div class="job-row">
+            <span class="job-row-label"><span class="lang-jp">休日</span><span class="lang-en">Days Off</span></span>
+            <span class="job-row-value"><span class="lang-jp">週休2日制</span><span class="lang-en">2 days off per week</span></span>
+          </div>
+          <div class="job-row">
+            <span class="job-row-label"><span class="lang-jp">資格</span><span class="lang-en">Licence</span></span>
+            <span class="job-row-value"><span class="lang-jp">中型自動車免許以上</span><span class="lang-en">Medium vehicle licence or above</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="recruit-cta fade-up">
+      <a href="#cta" class="btn-recruit">
+        <i class="ti ti-mail" aria-hidden="true"></i>
+        <span class="lang-jp">採用に関するお問い合せ</span>
+        <span class="lang-en">Enquire About Positions</span>
+      </a>
+      <p class="recruit-note">
+        <span class="lang-jp">※ 詳細はお電話またはメールにてお気軽にお問い合わせください。TEL: 043-460-2607</span>
+        <span class="lang-en">※ For full details please call or email us. TEL: 043-460-2607</span>
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- ════ CTA STRIP ══════════════════════════════════════════════ -->
 <section id="cta" aria-labelledby="cta-h">
   <div class="wrap">
@@ -1095,17 +1368,17 @@ footer{background:var(--gk);padding:4rem 0 0}
       <div class="qm-lp"><span class="lang-jp">車両紹介</span><span class="lang-en">Our Fleet</span></div>
       <div class="qm-le"><span class="lang-jp">Our Fleet</span><span class="lang-en">車両紹介</span></div>
     </a>
-    <a href="#" class="qm-card" role="listitem">
+    <a href="#ecology" class="qm-card" role="listitem">
       <div class="qm-ico" aria-hidden="true"><i class="ti ti-leaf"></i></div>
       <div class="qm-lp"><span class="lang-jp">環境への取り組み</span><span class="lang-en">Ecology</span></div>
       <div class="qm-le"><span class="lang-jp">Ecology</span><span class="lang-en">環境への取り組み</span></div>
     </a>
-    <a href="#" class="qm-card" role="listitem">
+    <a href="#safety" class="qm-card" role="listitem">
       <div class="qm-ico" aria-hidden="true"><i class="ti ti-shield-check"></i></div>
       <div class="qm-lp"><span class="lang-jp">安全への取り組み</span><span class="lang-en">Safety</span></div>
       <div class="qm-le"><span class="lang-jp">Safety</span><span class="lang-en">安全への取り組み</span></div>
     </a>
-    <a href="#" class="qm-card" role="listitem">
+    <a href="#recruit" class="qm-card" role="listitem">
       <div class="qm-ico" aria-hidden="true"><i class="ti ti-users"></i></div>
       <div class="qm-lp"><span class="lang-jp">採用情報</span><span class="lang-en">Recruitment</span></div>
       <div class="qm-le"><span class="lang-jp">Recruit</span><span class="lang-en">採用情報</span></div>

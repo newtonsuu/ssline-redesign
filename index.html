@@ -384,6 +384,123 @@ section,[id]{scroll-margin-top:var(--nav-h)}
 }
 .fleet-cap-load{font-size:.62rem;color:rgba(255,255,255,.4);margin-left:auto}
 
+/* fleet card — hover overlay */
+.fleet-card{cursor:pointer}
+.fleet-view{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(7,31,23,0);transition:background .3s ease;pointer-events:none;
+}
+.fleet-card:hover .fleet-view{background:rgba(7,31,23,.22)}
+.fleet-view-btn{
+  display:flex;align-items:center;gap:.45rem;
+  padding:.5rem 1.1rem;
+  background:rgba(7,31,23,.78);border:1px solid rgba(74,222,154,.35);
+  border-radius:4px;color:var(--mint);
+  font-size:.78rem;font-weight:700;
+  opacity:0;transform:translateY(6px) scale(.93);
+  transition:opacity .25s ease,transform .25s ease;
+  backdrop-filter:blur(4px);
+}
+.fleet-card:hover .fleet-view-btn{opacity:1;transform:translateY(0) scale(1)}
+.fleet-view-btn i{font-size:.9rem}
+
+/* ═══════════════════════════════════════════════════════════
+   FLEET LIGHTBOX
+═══════════════════════════════════════════════════════════ */
+#lb{
+  position:fixed;inset:0;z-index:3000;
+  background:rgba(7,31,23,.9);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;
+  padding:1.25rem;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s ease;
+}
+#lb.open{opacity:1;pointer-events:all}
+.lb-card{
+  position:relative;
+  background:var(--gd);border:1px solid rgba(74,222,154,.18);
+  border-radius:8px;overflow:hidden;
+  width:100%;max-width:960px;
+  display:grid;grid-template-columns:1fr 360px;
+  max-height:90vh;
+  transform:scale(.95) translateY(16px);
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+#lb.open .lb-card{transform:scale(1) translateY(0)}
+
+/* image side */
+.lb-img-wrap{position:relative;overflow:hidden;min-height:340px}
+.lb-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.lb-img-bar{
+  position:absolute;bottom:0;left:0;right:0;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.75rem 1rem;
+  background:linear-gradient(transparent,rgba(7,31,23,.85));
+}
+.lb-counter{font-size:.78rem;color:rgba(255,255,255,.55);font-weight:700;letter-spacing:.04em}
+.lb-prev,.lb-next{
+  width:34px;height:34px;border-radius:50%;
+  background:rgba(74,222,154,.12);color:var(--mint);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;transition:background var(--ease);
+}
+.lb-prev:hover,.lb-next:hover{background:rgba(74,222,154,.28)}
+
+/* close button */
+.lb-close{
+  position:absolute;top:.875rem;right:.875rem;z-index:10;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(0,0,0,.5);color:rgba(255,255,255,.75);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;
+  transition:background var(--ease),color var(--ease);
+}
+.lb-close:hover{background:rgba(74,222,154,.22);color:var(--mint)}
+
+/* details side */
+.lb-details{overflow-y:auto;display:flex;flex-direction:column;max-height:90vh}
+.lb-hd{padding:1.75rem 1.75rem 1.25rem;border-bottom:1px solid rgba(74,222,154,.1)}
+.lb-type-badge{
+  display:inline-block;
+  font-size:.58rem;font-weight:900;color:var(--mint);
+  text-transform:uppercase;letter-spacing:.14em;
+  background:rgba(74,222,154,.1);border:1px solid rgba(74,222,154,.22);
+  padding:.2rem .55rem;border-radius:2px;margin-bottom:.55rem;
+}
+.lb-name-jp{font-size:1.25rem;font-weight:900;color:#fff;line-height:1.2}
+.lb-name-en{font-size:.78rem;color:rgba(255,255,255,.4);margin-top:.2rem}
+
+.lb-specs{padding:1.1rem 1.75rem;flex:1}
+.lb-spec-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:.55rem 0;border-bottom:1px solid rgba(74,222,154,.07);
+  font-size:.8rem;gap:.75rem;
+}
+.lb-spec-row:last-child{border-bottom:none}
+.lb-spec-lbl{color:rgba(255,255,255,.35);font-weight:600;white-space:nowrap}
+.lb-spec-val{color:rgba(255,255,255,.78);text-align:right}
+
+.lb-feats{padding:0 1.75rem 1.5rem}
+.lb-feats-h{
+  font-size:.58rem;font-weight:900;color:rgba(74,222,154,.5);
+  text-transform:uppercase;letter-spacing:.12em;margin-bottom:.65rem;
+}
+.lb-feat{
+  display:flex;align-items:center;gap:.45rem;
+  font-size:.8rem;color:rgba(255,255,255,.6);margin-bottom:.38rem;
+}
+.lb-feat i{color:var(--mint);font-size:.85rem;flex-shrink:0}
+
+/* mobile — stack vertically */
+@media(max-width:640px){
+  .lb-card{grid-template-columns:1fr;grid-template-rows:240px 1fr;max-height:92vh}
+  .lb-img-wrap{min-height:0}
+  .lb-details{max-height:none}
+  .lb-hd{padding:1.25rem 1.25rem 1rem}
+  .lb-specs{padding:.85rem 1.25rem}
+  .lb-feats{padding:0 1.25rem 1.25rem}
+}
+
 /* ═══════════════════════════════════════════════════════════
    ECOLOGY
 ═══════════════════════════════════════════════════════════ */
@@ -1393,6 +1510,22 @@ footer{background:var(--gk);padding:4rem 0 0}
 
 </main>
 
+<!-- ════ FLEET LIGHTBOX ═════════════════════════════════════ -->
+<div id="lb" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="lb-card">
+    <div class="lb-img-wrap">
+      <img id="lb-img" src="" alt="" />
+      <div class="lb-img-bar">
+        <button class="lb-prev" id="lb-prev" aria-label="前の車両"><i class="ti ti-arrow-left"></i></button>
+        <span class="lb-counter" id="lb-counter">1 / 7</span>
+        <button class="lb-next" id="lb-next" aria-label="次の車両"><i class="ti ti-arrow-right"></i></button>
+      </div>
+    </div>
+    <div class="lb-details" id="lb-details"></div>
+    <button class="lb-close" id="lb-close" aria-label="閉じる"><i class="ti ti-x"></i></button>
+  </div>
+</div>
+
 <!-- ════ FOOTER ═════════════════════════════════════════════════ -->
 <footer id="footer" role="contentinfo">
   <div class="wrap">
@@ -1628,6 +1761,185 @@ const fadeObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
+
+/* ── Fleet lightbox ─────────────────────────────────────── */
+const vehicles = [
+  {
+    img:'images/trucks_ogata_wing.jpg',
+    type:'Large · Wing Body',
+    name_jp:'大型ウィング車',name_en:'Large Wing Truck',
+    specs:[
+      {lj:'メーカー',le:'Make',vj:'ISUZU',ve:'ISUZU'},
+      {lj:'最大積載量',le:'Max Load',vj:'約 20 t',ve:'Approx. 20 t'},
+      {lj:'車体形状',le:'Body Type',vj:'ウィング（両側開閉式）',ve:'Wing body — dual-side opening'},
+      {lj:'主要用途',le:'Use Case',vj:'パレット貨物・食品・日用品の幹線輸送',ve:'Pallet goods, food & daily products — trunk routes'},
+    ],
+    feats_jp:['フォークリフト対応','両側ウィング開閉式','雨天でも荷物を完全保護','パレット積み対応'],
+    feats_en:['Forklift compatible','Dual-side wing opening','Full weather protection','Pallet loading ready'],
+  },
+  {
+    img:'images/trucks_ogata_hira.jpg',
+    type:'Large · Flatbed',
+    name_jp:'大型平車',name_en:'Large Flatbed Truck',
+    specs:[
+      {lj:'メーカー',le:'Make',vj:'ISUZU',ve:'ISUZU'},
+      {lj:'最大積載量',le:'Max Load',vj:'約 20 t',ve:'Approx. 20 t'},
+      {lj:'車体形状',le:'Body Type',vj:'平ボディ',ve:'Flatbed'},
+      {lj:'主要用途',le:'Use Case',vj:'鋼材・建設機械・重量物の輸送',ve:'Steel, construction machinery & heavy cargo'},
+    ],
+    feats_jp:['大型重量物に対応','建設現場への直接納品','フレキシブルな積載配置','長尺物輸送可'],
+    feats_en:['Heavy oversized load capable','Direct construction site delivery','Flexible cargo arrangement','Long-length cargo transport'],
+  },
+  {
+    img:'images/trucks_7t_wing.jpg',
+    type:'Mid · Wing Body',
+    name_jp:'7tウィング車',name_en:'7t Wing Truck',
+    specs:[
+      {lj:'最大積載量',le:'Max Load',vj:'7 t',ve:'7 t'},
+      {lj:'車体形状',le:'Body Type',vj:'ウィング（両側開閉式）',ve:'Wing body — dual-side opening'},
+      {lj:'主要用途',le:'Use Case',vj:'中距離パレット輸送・精密機器の保護輸送',ve:'Mid-range pallet transport & precision cargo'},
+    ],
+    feats_jp:['パレット積み対応','雨天荷物を完全保護','中距離輸送に最適','フォークリフト対応'],
+    feats_en:['Pallet loading ready','Full weather protection','Ideal for mid-range routes','Forklift compatible'],
+  },
+  {
+    img:'images/trucks_7t_crane.jpg',
+    type:'Mid · Crane',
+    name_jp:'7tクレーン車',name_en:'7t Crane Truck',
+    specs:[
+      {lj:'最大積載量',le:'Max Load',vj:'7 t',ve:'7 t'},
+      {lj:'車体形状',le:'Body Type',vj:'クレーン付き平ボディ',ve:'Crane-equipped flatbed'},
+      {lj:'装備',le:'Equipment',vj:'ユニッククレーン搭載',ve:'Unic crane mounted'},
+      {lj:'主要用途',le:'Use Case',vj:'建設現場・倉庫への自力荷役配送',ve:'Self-loading delivery to sites & warehouses'},
+    ],
+    feats_jp:['クレーンによる自力荷役','荷役設備のない現場に対応','重量物の精密荷下ろし','7t積載対応'],
+    feats_en:['Self-loading via crane','Works without on-site equipment','Precision heavy-goods unloading','7t capacity'],
+  },
+  {
+    img:'images/trucks_4t_crane.jpg',
+    type:'Mid · Crane',
+    name_jp:'4tクレーン車',name_en:'4t Crane Truck',
+    specs:[
+      {lj:'最大積載量',le:'Max Load',vj:'4 t',ve:'4 t'},
+      {lj:'車体形状',le:'Body Type',vj:'クレーン付き平ボディ',ve:'Crane-equipped flatbed'},
+      {lj:'装備',le:'Equipment',vj:'ユニッククレーン搭載',ve:'Unic crane mounted'},
+      {lj:'主要用途',le:'Use Case',vj:'市街地・狭路での荷役配送',ve:'Urban & narrow-road crane delivery'},
+    ],
+    feats_jp:['小回りが利く都市部対応','狭い現場での荷役','4t積載対応','クレーン自力荷役'],
+    feats_en:['Agile urban maneuverability','Works in tight loading areas','4t capacity','Crane self-loading'],
+  },
+  {
+    img:'images/trucks_3t_hira.jpg',
+    type:'Light · Flatbed',
+    name_jp:'3t平車',name_en:'3t Flatbed Truck',
+    specs:[
+      {lj:'最大積載量',le:'Max Load',vj:'3 t',ve:'3 t'},
+      {lj:'車体形状',le:'Body Type',vj:'平ボディ',ve:'Flatbed'},
+      {lj:'主要用途',le:'Use Case',vj:'近距離の小口貨物配送',ve:'Short-haul small-lot freight delivery'},
+    ],
+    feats_jp:['小口貨物に最適','近距離配送に対応','フレキシブルな積載','軽量・機動性高い'],
+    feats_en:['Ideal for small lots','Short-haul delivery','Flexible loading','Lightweight & agile'],
+  },
+  {
+    img:'images/trucks_2t_hira.jpg',
+    type:'Light · Flatbed',
+    name_jp:'2t平車',name_en:'2t Flatbed Truck',
+    specs:[
+      {lj:'最大積載量',le:'Max Load',vj:'2 t',ve:'2 t'},
+      {lj:'車体形状',le:'Body Type',vj:'平ボディ',ve:'Flatbed'},
+      {lj:'主要用途',le:'Use Case',vj:'急送・ラストワンマイル配送',ve:'Express & last-mile delivery'},
+    ],
+    feats_jp:['狭路・市街地に最適','ラストワンマイル対応','急送に迅速対応','小回りが利く'],
+    feats_en:['Narrow roads & urban areas','Last-mile delivery','Fast urgent shipments','Highly maneuverable'],
+  },
+];
+
+let lbIdx = 0;
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lb-img');
+const lbDetails = document.getElementById('lb-details');
+const lbCounter = document.getElementById('lb-counter');
+
+function lbRender(i) {
+  const v = vehicles[i];
+  const isEn = root.getAttribute('data-lang') === 'en';
+  lbImg.src = v.img;
+  lbImg.alt = isEn ? v.name_en : v.name_jp;
+  lbCounter.textContent = (i + 1) + ' / ' + vehicles.length;
+
+  const specs = v.specs.map(s =>
+    `<div class="lb-spec-row">
+      <span class="lb-spec-lbl lang-jp">${s.lj}</span>
+      <span class="lb-spec-lbl lang-en">${s.le}</span>
+      <span class="lb-spec-val lang-jp">${s.vj}</span>
+      <span class="lb-spec-val lang-en">${s.ve}</span>
+    </div>`
+  ).join('');
+
+  const feats = v.feats_jp.map((f,n) =>
+    `<div class="lb-feat">
+      <i class="ti ti-check" aria-hidden="true"></i>
+      <span class="lang-jp">${f}</span>
+      <span class="lang-en">${v.feats_en[n]}</span>
+    </div>`
+  ).join('');
+
+  lbDetails.innerHTML =
+    `<div class="lb-hd">
+      <span class="lb-type-badge">${v.type}</span>
+      <div class="lb-name-jp lang-jp">${v.name_jp}</div>
+      <div class="lb-name-jp lang-en">${v.name_en}</div>
+      <div class="lb-name-en lang-jp">${v.name_en}</div>
+      <div class="lb-name-en lang-en">${v.name_jp}</div>
+    </div>
+    <div class="lb-specs">${specs}</div>
+    <div class="lb-feats">
+      <div class="lb-feats-h lang-jp">主な特徴</div>
+      <div class="lb-feats-h lang-en">Key Features</div>
+      ${feats}
+    </div>`;
+}
+
+function lbOpen(i) {
+  lbIdx = i;
+  lbRender(i);
+  lb.setAttribute('aria-hidden','false');
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function lbClose() {
+  lb.classList.remove('open');
+  lb.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('lb-close').addEventListener('click', lbClose);
+lb.addEventListener('click', e => { if(e.target === lb) lbClose(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') lbClose(); });
+
+document.getElementById('lb-prev').addEventListener('click', () => {
+  lbIdx = (lbIdx - 1 + vehicles.length) % vehicles.length;
+  lbRender(lbIdx);
+});
+document.getElementById('lb-next').addEventListener('click', () => {
+  lbIdx = (lbIdx + 1) % vehicles.length;
+  lbRender(lbIdx);
+});
+
+/* inject hover overlay + click on each fleet card */
+document.querySelectorAll('.fleet-card').forEach((card, i) => {
+  const ov = document.createElement('div');
+  ov.className = 'fleet-view';
+  ov.innerHTML =
+    '<div class="fleet-view-btn">' +
+      '<i class="ti ti-zoom-in" aria-hidden="true"></i>' +
+      '<span class="lang-jp">詳細を見る</span>' +
+      '<span class="lang-en">View Details</span>' +
+    '</div>';
+  card.appendChild(ov);
+  card.addEventListener('click', () => lbOpen(i));
+});
 </script>
 </body>
 </html>

@@ -9,7 +9,6 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a3d2e'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%234ade9a' font-size='18' font-weight='900' font-family='sans-serif'>S</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://images.unsplash.com" />
   <link rel="dns-prefetch" href="https://unpkg.com" />
   <link rel="preload" as="image" href="images/topslide-1.png" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
@@ -751,6 +750,94 @@ footer{background:var(--gk);padding:4rem 0 0}
 }
 .foot-social a:hover{background:rgba(74,222,154,.12);color:var(--mint)}
 
+/* ── ACTIVE NAV HIGHLIGHT (scroll spy) ──────────────────── */
+.nav-item>a.spy-active{color:var(--mint)!important}
+.nav-item>a.spy-active::after{
+  content:'';position:absolute;bottom:0;left:.6rem;right:.6rem;
+  height:2px;background:var(--mint);border-radius:1px;
+}
+
+/* ── HERO PROGRESS BAR ───────────────────────────────────── */
+#hero-prog{
+  position:absolute;bottom:0;left:0;right:0;z-index:20;
+  height:2px;background:rgba(74,222,154,.15);overflow:hidden;
+}
+#hero-prog-fill{
+  height:100%;width:0%;
+  background:var(--mint);
+  transition:width linear;
+}
+
+/* ── CONTACT FORM SECTION ────────────────────────────────── */
+#contact{padding:5rem 0;background:var(--bg-alt);transition:background-color .3s ease}
+.cf-grid{display:grid;grid-template-columns:1fr 480px;gap:4rem;align-items:start;margin-top:2.5rem}
+.cf-info{display:flex;flex-direction:column;gap:1.5rem}
+.cf-info-point{
+  display:flex;align-items:flex-start;gap:1rem;
+  padding:1.25rem;background:var(--bg);
+  border:var(--bw) solid rgba(74,222,154,.12);border-radius:6px;
+  transition:border-color .3s,background .3s;
+}
+.cf-info-point:hover{border-color:rgba(74,222,154,.3)}
+.cf-info-ico{
+  width:2.5rem;height:2.5rem;flex-shrink:0;border-radius:var(--r);
+  background:rgba(74,222,154,.1);display:flex;align-items:center;justify-content:center;
+}
+.cf-info-ico i{color:var(--mint);font-size:1.1rem}
+.cf-info-t{font-size:.82rem;font-weight:700;color:var(--t1);margin-bottom:.2rem;transition:color .3s}
+.cf-info-v{font-size:.825rem;color:var(--t2);transition:color .3s}
+.cf-info-v a{color:var(--mint)}
+.cf-info-v a:hover{text-decoration:underline}
+.cf-form{background:var(--bg);border:var(--bw) solid rgba(74,222,154,.14);border-radius:6px;padding:2rem;transition:background .3s}
+.cf-row{margin-bottom:1.125rem}
+.cf-label{display:block;font-size:.78rem;font-weight:700;color:var(--t2);margin-bottom:.35rem;transition:color .3s}
+.cf-req{color:var(--mint);margin-left:.2rem}
+.cf-input,.cf-select,.cf-textarea{
+  width:100%;padding:.65rem .9rem;
+  background:var(--bg-alt);color:var(--t1);
+  border:var(--bw) solid var(--brd);border-radius:var(--r);
+  font-family:inherit;font-size:.875rem;
+  transition:border-color .2s,background .3s,color .3s;
+  appearance:none;-webkit-appearance:none;
+}
+.cf-input:focus,.cf-select:focus,.cf-textarea:focus{
+  outline:none;border-color:var(--mint);
+  box-shadow:0 0 0 2px rgba(74,222,154,.12);
+}
+.cf-input.err,.cf-select.err,.cf-textarea.err{border-color:#f87171}
+.cf-err{display:none;font-size:.72rem;color:#f87171;margin-top:.3rem}
+.cf-input.err~.cf-err,.cf-select.err~.cf-err,.cf-textarea.err~.cf-err{display:block}
+.cf-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234ade9a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .85rem center;padding-right:2.5rem}
+.cf-textarea{resize:vertical;min-height:120px;line-height:1.6}
+.cf-row-2{display:grid;grid-template-columns:1fr 1fr;gap:.875rem}
+.cf-submit{
+  width:100%;padding:.75rem 1.5rem;
+  background:var(--mint);color:var(--gd);
+  font-family:inherit;font-size:.9375rem;font-weight:700;
+  border-radius:var(--r);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:.45rem;
+  transition:background var(--ease),transform var(--ease);
+  margin-top:1.375rem;
+}
+.cf-submit:hover{background:var(--mintd);transform:translateY(-1px)}
+.cf-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.cf-success{
+  display:none;text-align:center;padding:2rem 1rem;
+}
+.cf-success.show{display:block}
+.cf-success-ico{font-size:3rem;color:var(--mint);margin-bottom:.75rem}
+.cf-success-t{font-size:1rem;font-weight:800;color:var(--t1);margin-bottom:.5rem;transition:color .3s}
+.cf-success-p{font-size:.875rem;color:var(--t3);transition:color .3s}
+@media(max-width:960px){
+  .cf-grid{grid-template-columns:1fr;gap:2rem}
+  .cf-grid .cf-form{order:-1}
+}
+@media(max-width:640px){
+  .cf-row-2{grid-template-columns:1fr}
+  .cf-form{padding:1.375rem}
+  #contact{padding:3.5rem 0}
+}
+
 /* ── BACK TO TOP ─────────────────────────────────────────── */
 #totop{
   position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;
@@ -823,6 +910,17 @@ footer{background:var(--gk);padding:4rem 0 0}
   .fleet-card:first-child{grid-column:span 1}
   .stats-grid{grid-template-columns:1fr 1fr}
 }
+@media print{
+  #nav,#mnav,#hero .c-arrow,#hero .c-dots,#totop,#lb,#quick,.slide-cta,.btn-recruit,.btn-cta,
+  .cf-submit,.fleet-view,.foot-social,#hero-prog{display:none!important}
+  #hero{height:auto;min-height:0}
+  .slide{position:static;opacity:1;padding-top:0}
+  .slide:not(.active){display:none}
+  .slide-bg{display:none}
+  body{background:#fff!important;color:#000!important}
+  .wrap{padding:0 1cm}
+  footer{background:#f4f4f4!important;color:#333!important}
+}
   </style>
 </head>
 <body>
@@ -874,7 +972,7 @@ footer{background:var(--gk);padding:4rem 0 0}
           <li><a href="#recruit" role="menuitem"><span class="lang-jp">スタッフの声</span><span class="lang-en">Staff Voices</span></a></li>
         </ul>
       </li>
-      <li class="nav-item"><a href="#cta"><span class="lang-jp">お問い合せ</span><span class="lang-en">Contact</span></a></li>
+      <li class="nav-item"><a href="#contact"><span class="lang-jp">お問い合せ</span><span class="lang-en">Contact</span></a></li>
     </ul>
     <div class="nav-right">
       <div class="nav-ctl">
@@ -932,7 +1030,7 @@ footer{background:var(--gk);padding:4rem 0 0}
         <a href="#recruit"><span class="lang-jp">スタッフの声</span><span class="lang-en">Staff Voices</span></a>
       </div>
     </li>
-    <li class="mi"><a href="#cta"><span class="lang-jp">お問い合せ</span><span class="lang-en">Contact</span></a></li>
+    <li class="mi"><a href="#contact"><span class="lang-jp">お問い合せ</span><span class="lang-en">Contact</span></a></li>
   </ul>
 </div>
 
@@ -974,8 +1072,8 @@ footer{background:var(--gk);padding:4rem 0 0}
           <span class="lang-jp">ドライバー募集</span>
           <span class="lang-en">Driver Recruitment</span>
         </p>
-        <a href="#" class="slide-cta">
-          <span class="lang-jp">詳しく見る</span><span class="lang-en">Learn More</span>
+        <a href="#recruit" class="slide-cta">
+          <span class="lang-jp">採用情報を見る</span><span class="lang-en">View Job Openings</span>
           <i class="ti ti-arrow-right" aria-hidden="true"></i>
         </a>
       </div>
@@ -1015,6 +1113,7 @@ footer{background:var(--gk);padding:4rem 0 0}
 
     <button class="c-arrow c-prev" id="cprev" aria-label="前のスライド"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
     <button class="c-arrow c-next" id="cnext" aria-label="次のスライド"><i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+    <div id="hero-prog" aria-hidden="true"><div id="hero-prog-fill"></div></div>
     <div class="c-dots" role="tablist" aria-label="スライドを選択">
       <button class="c-dot on" data-n="0" role="tab" aria-selected="true"  aria-label="スライド 1"></button>
       <button class="c-dot"    data-n="1" role="tab" aria-selected="false" aria-label="スライド 2"></button>
@@ -1302,7 +1401,7 @@ footer{background:var(--gk);padding:4rem 0 0}
       </article>
     </div>
     <div class="news-more fade-up">
-      <a href="#" class="btn-ol">
+      <a href="#information" class="btn-ol">
         <span class="lang-jp">お知らせ一覧</span><span class="lang-en">View All News</span>
         <i class="ti ti-arrow-right" aria-hidden="true"></i>
       </a>
@@ -1334,7 +1433,7 @@ footer{background:var(--gk);padding:4rem 0 0}
           <span class="lang-jp">長距離・近距離を問わず、安全・確実な輸送サービスをご提供します。大型から小型まで幅広い車両で対応いたします。</span>
           <span class="lang-en">Safe and reliable transport for both long and short distances. We cover a wide range of cargo with our fleet.</span>
         </p>
-        <a href="#" class="svc-more">
+        <a href="#services" class="svc-more">
           <span class="lang-jp">詳しく見る</span><span class="lang-en">Learn more</span>
           <i class="ti ti-arrow-right" aria-hidden="true"></i>
         </a>
@@ -1349,7 +1448,7 @@ footer{background:var(--gk);padding:4rem 0 0}
           <span class="lang-jp">製造・卸売・流通業の企業物流をトータルサポート。お客様のサプライチェーンを最適化いたします。</span>
           <span class="lang-en">Total support for manufacturing, wholesale, and distribution logistics. We optimize your supply chain.</span>
         </p>
-        <a href="#" class="svc-more">
+        <a href="#services" class="svc-more">
           <span class="lang-jp">詳しく見る</span><span class="lang-en">Learn more</span>
           <i class="ti ti-arrow-right" aria-hidden="true"></i>
         </a>
@@ -1364,7 +1463,7 @@ footer{background:var(--gk);padding:4rem 0 0}
           <span class="lang-jp">決まった時間に、決まった場所へ。スケジュール配送で業務効率の向上を支援いたします。</span>
           <span class="lang-en">The right place, at the right time, every time. Scheduled routes to support your operational efficiency.</span>
         </p>
-        <a href="#" class="svc-more">
+        <a href="#services" class="svc-more">
           <span class="lang-jp">詳しく見る</span><span class="lang-en">Learn more</span>
           <i class="ti ti-arrow-right" aria-hidden="true"></i>
         </a>
@@ -1379,7 +1478,7 @@ footer{background:var(--gk);padding:4rem 0 0}
           <span class="lang-jp">急ぎの荷物も大型貨物も。専用チャーター便で迅速・確実に対応いたします。365日対応可能です。</span>
           <span class="lang-en">Urgent or oversized cargo handled promptly. Dedicated charter service available 365 days a year.</span>
         </p>
-        <a href="#" class="svc-more">
+        <a href="#services" class="svc-more">
           <span class="lang-jp">詳しく見る</span><span class="lang-en">Learn more</span>
           <i class="ti ti-arrow-right" aria-hidden="true"></i>
         </a>
@@ -1728,6 +1827,148 @@ footer{background:var(--gk);padding:4rem 0 0}
   </div>
 </section>
 
+<!-- ════ CONTACT FORM ═══════════════════════════════════════════ -->
+<section id="contact" aria-labelledby="cf-h2">
+  <div class="wrap">
+    <div class="sec-hd fade-up">
+      <div class="sec-ey">CONTACT</div>
+      <h2 class="sec-h2" id="cf-h2">
+        <span class="lang-jp">お問い合わせフォーム</span><span class="lang-en">Contact Form</span>
+      </h2>
+      <div class="sec-sub">
+        <span class="lang-jp">輸送のご依頼・採用・その他何でもお気軽にどうぞ</span>
+        <span class="lang-en">Shipping enquiries, recruitment or anything else — feel free to ask</span>
+      </div>
+    </div>
+    <div class="cf-grid">
+
+      <!-- Info column -->
+      <div class="cf-info fade-up">
+        <div class="cf-info-point">
+          <div class="cf-info-ico"><i class="ti ti-phone" aria-hidden="true"></i></div>
+          <div>
+            <div class="cf-info-t lang-jp">お電話</div>
+            <div class="cf-info-t lang-en">Phone</div>
+            <div class="cf-info-v"><a href="tel:0434602607">043-460-2607</a></div>
+          </div>
+        </div>
+        <div class="cf-info-point">
+          <div class="cf-info-ico"><i class="ti ti-mail" aria-hidden="true"></i></div>
+          <div>
+            <div class="cf-info-t lang-jp">メール</div>
+            <div class="cf-info-t lang-en">Email</div>
+            <div class="cf-info-v"><a href="mailto:info@ssline.co.jp">info@ssline.co.jp</a></div>
+          </div>
+        </div>
+        <div class="cf-info-point">
+          <div class="cf-info-ico"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
+          <div>
+            <div class="cf-info-t lang-jp">所在地</div>
+            <div class="cf-info-t lang-en">Address</div>
+            <div class="cf-info-v lang-jp">〒285-0844 千葉県佐倉市上志津原297-8</div>
+            <div class="cf-info-v lang-en">Kamishizuhara 297-8, Sakura City, Chiba 285-0844</div>
+          </div>
+        </div>
+        <div class="cf-info-point">
+          <div class="cf-info-ico"><i class="ti ti-clock" aria-hidden="true"></i></div>
+          <div>
+            <div class="cf-info-t lang-jp">受付時間</div>
+            <div class="cf-info-t lang-en">Business Hours</div>
+            <div class="cf-info-v lang-jp">365日・24時間対応</div>
+            <div class="cf-info-v lang-en">365 days, 24 hours</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form column -->
+      <div class="fade-up">
+        <form id="cf" class="cf-form" novalidate>
+          <div id="cf-success" class="cf-success" role="status">
+            <div class="cf-success-ico"><i class="ti ti-circle-check" aria-hidden="true"></i></div>
+            <div class="cf-success-t lang-jp">送信しました。ありがとうございます。</div>
+            <div class="cf-success-t lang-en">Message sent. Thank you!</div>
+            <p class="cf-success-p lang-jp">担当者よりご連絡いたします。</p>
+            <p class="cf-success-p lang-en">Our team will be in touch shortly.</p>
+          </div>
+          <div id="cf-fields">
+            <div class="cf-row-2">
+              <div class="cf-row">
+                <label class="cf-label" for="cf-name">
+                  <span class="lang-jp">お名前</span><span class="lang-en">Name</span>
+                  <span class="cf-req" aria-label="required">*</span>
+                </label>
+                <input id="cf-name" name="name" type="text" class="cf-input" required autocomplete="name"
+                  placeholder="山田 太郎 / Taro Yamada" />
+                <span class="cf-err lang-jp">お名前を入力してください</span>
+                <span class="cf-err lang-en">Please enter your name</span>
+              </div>
+              <div class="cf-row">
+                <label class="cf-label" for="cf-company">
+                  <span class="lang-jp">会社名</span><span class="lang-en">Company</span>
+                </label>
+                <input id="cf-company" name="company" type="text" class="cf-input" autocomplete="organization"
+                  placeholder="株式会社〇〇 / Company Name" />
+              </div>
+            </div>
+            <div class="cf-row-2">
+              <div class="cf-row">
+                <label class="cf-label" for="cf-email">
+                  <span class="lang-jp">メールアドレス</span><span class="lang-en">Email</span>
+                  <span class="cf-req" aria-label="required">*</span>
+                </label>
+                <input id="cf-email" name="email" type="email" class="cf-input" required autocomplete="email"
+                  placeholder="example@company.co.jp" />
+                <span class="cf-err lang-jp">正しいメールアドレスを入力してください</span>
+                <span class="cf-err lang-en">Please enter a valid email address</span>
+              </div>
+              <div class="cf-row">
+                <label class="cf-label" for="cf-tel">
+                  <span class="lang-jp">電話番号</span><span class="lang-en">Phone</span>
+                </label>
+                <input id="cf-tel" name="tel" type="tel" class="cf-input" autocomplete="tel"
+                  placeholder="043-460-XXXX" />
+              </div>
+            </div>
+            <div class="cf-row">
+              <label class="cf-label" for="cf-type">
+                <span class="lang-jp">お問い合わせ種別</span><span class="lang-en">Enquiry Type</span>
+                <span class="cf-req" aria-label="required">*</span>
+              </label>
+              <select id="cf-type" name="type" class="cf-select" required>
+                <option value="">
+                  <span class="lang-jp">選択してください</span>
+                  <span class="lang-en">Please select</span>
+                </option>
+                <option value="freight"><span class="lang-jp">輸送・物流のご依頼</span><span class="lang-en">Freight / Logistics Enquiry</span></option>
+                <option value="charter"><span class="lang-jp">チャーター便のご依頼</span><span class="lang-en">Charter Service Enquiry</span></option>
+                <option value="recruit"><span class="lang-jp">採用に関するお問い合わせ</span><span class="lang-en">Recruitment Enquiry</span></option>
+                <option value="other"><span class="lang-jp">その他</span><span class="lang-en">Other</span></option>
+              </select>
+              <span class="cf-err lang-jp">種別を選択してください</span>
+              <span class="cf-err lang-en">Please select an enquiry type</span>
+            </div>
+            <div class="cf-row">
+              <label class="cf-label" for="cf-msg">
+                <span class="lang-jp">お問い合わせ内容</span><span class="lang-en">Message</span>
+                <span class="cf-req" aria-label="required">*</span>
+              </label>
+              <textarea id="cf-msg" name="message" class="cf-textarea" required rows="5"
+                placeholder="ご質問・ご要望をご記入ください / Please describe your enquiry"></textarea>
+              <span class="cf-err lang-jp">お問い合わせ内容を入力してください</span>
+              <span class="cf-err lang-en">Please enter your message</span>
+            </div>
+            <button type="submit" class="cf-submit" id="cf-btn">
+              <i class="ti ti-send" aria-hidden="true"></i>
+              <span class="lang-jp">送信する</span><span class="lang-en">Send Message</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ════ QUICK MENU ═════════════════════════════════════════════ -->
 <section id="quick" aria-label="クイックメニュー">
   <div class="qm-grid" role="list">
@@ -1751,7 +1992,7 @@ footer{background:var(--gk);padding:4rem 0 0}
       <div class="qm-lp"><span class="lang-jp">採用情報</span><span class="lang-en">Recruitment</span></div>
       <div class="qm-le"><span class="lang-jp">Recruit</span><span class="lang-en">採用情報</span></div>
     </a>
-    <a href="#cta" class="qm-card" role="listitem">
+    <a href="#contact" class="qm-card" role="listitem">
       <div class="qm-ico" aria-hidden="true"><i class="ti ti-mail"></i></div>
       <div class="qm-lp"><span class="lang-jp">お問い合せ</span><span class="lang-en">Contact Us</span></div>
       <div class="qm-le"><span class="lang-jp">Contact</span><span class="lang-en">お問い合せ</span></div>
@@ -1806,11 +2047,11 @@ footer{background:var(--gk);padding:4rem 0 0}
           <div>
             <div class="fcol-h"><span class="lang-jp">会社情報</span><span class="lang-en">About Us</span></div>
             <div class="fcol-links">
-              <a href="#"><span class="lang-jp">社長メッセージ</span><span class="lang-en">President's Message</span></a>
-              <a href="#"><span class="lang-jp">経営理念</span><span class="lang-en">Philosophy</span></a>
-              <a href="#"><span class="lang-jp">会社概要</span><span class="lang-en">Profile</span></a>
-              <a href="#"><span class="lang-jp">沿革</span><span class="lang-en">History</span></a>
-              <a href="#"><span class="lang-jp">事務所案内</span><span class="lang-en">Office</span></a>
+              <a href="#message"><span class="lang-jp">社長メッセージ</span><span class="lang-en">President's Message</span></a>
+              <a href="#about"><span class="lang-jp">経営理念</span><span class="lang-en">Philosophy</span></a>
+              <a href="#about"><span class="lang-jp">会社概要</span><span class="lang-en">Profile</span></a>
+              <a href="#about"><span class="lang-jp">沿革</span><span class="lang-en">History</span></a>
+              <a href="#contact"><span class="lang-jp">事務所案内</span><span class="lang-en">Office</span></a>
             </div>
           </div>
           <div>
@@ -1825,20 +2066,20 @@ footer{background:var(--gk);padding:4rem 0 0}
           <div>
             <div class="fcol-h"><span class="lang-jp">環境・安全</span><span class="lang-en">Eco &amp; Safety</span></div>
             <div class="fcol-links">
-              <a href="#"><span class="lang-jp">環境への取り組み</span><span class="lang-en">Ecology</span></a>
-              <a href="#"><span class="lang-jp">安全への取り組み</span><span class="lang-en">Safety</span></a>
+              <a href="#ecology"><span class="lang-jp">環境への取り組み</span><span class="lang-en">Ecology</span></a>
+              <a href="#safety"><span class="lang-jp">安全への取り組み</span><span class="lang-en">Safety</span></a>
             </div>
             <div class="fcol-h fcol-gap"><span class="lang-jp">採用情報</span><span class="lang-en">Recruitment</span></div>
             <div class="fcol-links">
-              <a href="#"><span class="lang-jp">求人情報</span><span class="lang-en">Job Openings</span></a>
-              <a href="#"><span class="lang-jp">スタッフの声</span><span class="lang-en">Staff Voices</span></a>
+              <a href="#recruit"><span class="lang-jp">求人情報</span><span class="lang-en">Job Openings</span></a>
+              <a href="#recruit"><span class="lang-jp">スタッフの声</span><span class="lang-en">Staff Voices</span></a>
             </div>
           </div>
           <div>
             <div class="fcol-h"><span class="lang-jp">その他</span><span class="lang-en">Other</span></div>
             <div class="fcol-links">
-              <a href="#"><span class="lang-jp">プライバシーポリシー</span><span class="lang-en">Privacy Policy</span></a>
-              <a href="#"><span class="lang-jp">サイトポリシー</span><span class="lang-en">Site Policy</span></a>
+              <a href="#contact"><span class="lang-jp">プライバシーポリシー</span><span class="lang-en">Privacy Policy</span></a>
+              <a href="#contact"><span class="lang-jp">サイトポリシー</span><span class="lang-en">Site Policy</span></a>
             </div>
           </div>
         </nav>
@@ -1941,19 +2182,30 @@ document.querySelectorAll('#mnav [aria-controls]').forEach(trigger => {
   });
 });
 
-/* ── Hero carousel with Ken Burns ───────────────────────── */
+/* ── Hero carousel with Ken Burns + progress bar ─────────── */
 const slides = Array.from(document.querySelectorAll('.slide'));
 const dots   = Array.from(document.querySelectorAll('.c-dot'));
 let cur = 0, carTimer;
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const progFill = document.getElementById('hero-prog-fill');
+const CAR_INTERVAL = 5000;
 
 function startKB(slide) {
   if (reduceMotion) return;
   const bg = slide.querySelector('.slide-bg');
   if (!bg) return;
   bg.style.animation = 'none';
-  bg.offsetHeight; // force reflow to restart
+  bg.offsetHeight;
   bg.style.animation = '';
+}
+
+function startProg() {
+  if (reduceMotion || !progFill) return;
+  progFill.style.transition = 'none';
+  progFill.style.width = '0%';
+  progFill.offsetHeight;
+  progFill.style.transition = `width ${CAR_INTERVAL}ms linear`;
+  progFill.style.width = '100%';
 }
 
 function goTo(n) {
@@ -1965,20 +2217,34 @@ function goTo(n) {
   dots[cur].classList.add('on');
   dots[cur].setAttribute('aria-selected', 'true');
   startKB(slides[cur]);
+  startProg();
 }
 function startCar() {
   if (reduceMotion) return;
-  carTimer = setInterval(() => goTo(cur + 1), 5000);
+  carTimer = setInterval(() => goTo(cur + 1), CAR_INTERVAL);
 }
-function resetCar() { clearInterval(carTimer); startCar(); }
+function resetCar() { clearInterval(carTimer); startProg(); startCar(); }
 
 dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.n); resetCar(); }));
 document.getElementById('cprev').addEventListener('click', () => { goTo(cur - 1); resetCar(); });
 document.getElementById('cnext').addEventListener('click', () => { goTo(cur + 1); resetCar(); });
 const carEl = document.querySelector('.carousel');
-carEl.addEventListener('mouseenter', () => clearInterval(carTimer));
-carEl.addEventListener('mouseleave', startCar);
+carEl.addEventListener('mouseenter', () => {
+  clearInterval(carTimer);
+  if (progFill) { progFill.style.transition = 'none'; }
+});
+carEl.addEventListener('mouseleave', () => { startProg(); startCar(); });
+
+/* touch / swipe */
+let tsX = 0;
+carEl.addEventListener('touchstart', e => { tsX = e.changedTouches[0].clientX; }, { passive: true });
+carEl.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tsX;
+  if (Math.abs(dx) > 50) { goTo(dx > 0 ? cur - 1 : cur + 1); resetCar(); }
+}, { passive: true });
+
 startKB(slides[0]);
+startProg();
 startCar();
 
 /* ── Stats counter ──────────────────────────────────────── */
@@ -2012,6 +2278,23 @@ const fadeObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
+
+/* ── Scroll spy — active nav section ───────────────────── */
+const spySections = document.querySelectorAll('main section[id]');
+const navLinks = document.querySelectorAll('.nav-list .nav-item>a[href^="#"]');
+const spyObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const id = e.target.id;
+    navLinks.forEach(a => {
+      const active = a.getAttribute('href') === '#' + id ||
+        (a.nextElementSibling && a.nextElementSibling.querySelector(`a[href="#${id}"]`));
+      a.classList.toggle('spy-active', !!active);
+      a.setAttribute('aria-current', active ? 'true' : 'false');
+    });
+  });
+}, { rootMargin: '-35% 0px -55% 0px' });
+spySections.forEach(s => spyObs.observe(s));
 
 /* ── Fleet lightbox ─────────────────────────────────────── */
 const vehicles = [
@@ -2105,7 +2388,7 @@ const vehicles = [
   },
 ];
 
-let lbIdx = 0;
+let lbIdx = 0, lbOpener = null;
 const lb = document.getElementById('lb');
 const lbImg = document.getElementById('lb-img');
 const lbDetails = document.getElementById('lb-details');
@@ -2153,17 +2436,30 @@ function lbRender(i) {
 
 function lbOpen(i) {
   lbIdx = i;
+  lbOpener = document.activeElement;
   lbRender(i);
   lb.setAttribute('aria-hidden','false');
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
+  requestAnimationFrame(() => document.getElementById('lb-close').focus());
 }
 
 function lbClose() {
   lb.classList.remove('open');
   lb.setAttribute('aria-hidden','true');
   document.body.style.overflow = '';
+  if (lbOpener) { lbOpener.focus(); lbOpener = null; }
 }
+
+/* focus trap inside lightbox */
+lb.addEventListener('keydown', e => {
+  if (e.key !== 'Tab' || !lb.classList.contains('open')) return;
+  const focusable = Array.from(lb.querySelectorAll('button:not([disabled])'));
+  if (!focusable.length) return;
+  const first = focusable[0], last = focusable[focusable.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+});
 
 document.getElementById('lb-close').addEventListener('click', lbClose);
 lb.addEventListener('click', e => { if(e.target === lb) lbClose(); });
@@ -2177,6 +2473,48 @@ document.getElementById('lb-next').addEventListener('click', () => {
   lbIdx = (lbIdx + 1) % vehicles.length;
   lbRender(lbIdx);
 });
+
+/* ── Contact form ───────────────────────────────────────── */
+const cfForm = document.getElementById('cf');
+if (cfForm) {
+  const cfFields = ['cf-name','cf-email','cf-type','cf-msg'];
+  function cfValidate(id) {
+    const el = document.getElementById(id);
+    if (!el) return true;
+    const ok = el.checkValidity() && el.value.trim() !== '';
+    el.classList.toggle('err', !ok);
+    return ok;
+  }
+  cfFields.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', () => cfValidate(id));
+  });
+  cfForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const valid = cfFields.map(cfValidate).every(Boolean);
+    if (!valid) { cfForm.querySelector('.err')?.focus(); return; }
+    const btn = document.getElementById('cf-btn');
+    btn.disabled = true;
+    const name    = document.getElementById('cf-name').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+    const company = document.getElementById('cf-company').value.trim();
+    const type    = document.getElementById('cf-type').value;
+    const msg     = document.getElementById('cf-msg').value.trim();
+    const subject = encodeURIComponent(`[SS LINE お問い合わせ] ${type} - ${name}`);
+    const body    = encodeURIComponent(`お名前: ${name}\n会社名: ${company}\nメール: ${email}\n種別: ${type}\n\n${msg}`);
+    window.location.href = `mailto:info@ssline.co.jp?subject=${subject}&body=${body}`;
+    setTimeout(() => {
+      document.getElementById('cf-fields').style.display = 'none';
+      const suc = document.getElementById('cf-success');
+      suc.classList.add('show');
+      suc.focus();
+    }, 400);
+  });
+}
+
+/* ── Mobile nav: close after sub-menu link click ─────────── */
+document.querySelectorAll('.mdd a').forEach(a =>
+  a.addEventListener('click', () => setMNav(false)));
 
 /* inject hover overlay + click on each fleet card */
 document.querySelectorAll('.fleet-card').forEach((card, i) => {

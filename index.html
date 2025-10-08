@@ -285,6 +285,82 @@ section,[id]{scroll-margin-top:var(--nav-h)}
 .sec-sub{font-size:.78rem;color:var(--t3);margin-top:.25rem;transition:color .3s ease}
 
 /* ═══════════════════════════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════════════════════════ */
+#about{padding:5.5rem 0;background:var(--bg-alt);transition:background-color .3s ease}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:2.5rem}
+.about-profile{background:var(--bg);border:var(--bw) solid rgba(74,222,154,.12);border-radius:6px;overflow:hidden;transition:background-color .3s ease}
+.about-profile-hd{
+  padding:.875rem 1.5rem;border-bottom:var(--bw) solid rgba(74,222,154,.12);
+  display:flex;align-items:center;gap:.5rem;
+}
+.about-profile-hd i{color:var(--mint);font-size:1rem}
+.about-profile-hd span{font-size:.68rem;font-weight:800;color:var(--mint);text-transform:uppercase;letter-spacing:.1em}
+.about-row{
+  display:flex;gap:1.25rem;padding:.825rem 1.5rem;
+  border-bottom:var(--bw) solid rgba(74,222,154,.07);
+  font-size:.85rem;transition:border-color .3s;
+}
+.about-row:last-child{border-bottom:none}
+.about-lbl{color:var(--t3);font-weight:600;white-space:nowrap;min-width:5.5rem;flex-shrink:0;transition:color .3s}
+.about-val{color:var(--t1);line-height:1.5;transition:color .3s}
+.about-values{display:flex;flex-direction:column;gap:1rem}
+.about-value{
+  display:grid;grid-template-columns:2.75rem 1fr;gap:1rem;align-items:start;
+  padding:1.25rem;background:var(--bg);
+  border:var(--bw) solid rgba(74,222,154,.12);border-radius:6px;
+  transition:border-color .3s,background-color .3s;
+}
+.about-value:hover{border-color:rgba(74,222,154,.32)}
+.about-value-ico{
+  width:2.75rem;height:2.75rem;border-radius:6px;
+  background:rgba(74,222,154,.1);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.about-value-ico i{color:var(--mint);font-size:1.125rem}
+.about-value-t{font-size:.875rem;font-weight:800;color:var(--t1);margin-bottom:.28rem;line-height:1.3;transition:color .3s}
+.about-value-d{font-size:.8rem;color:var(--t3);line-height:1.6;transition:color .3s}
+
+/* ═══════════════════════════════════════════════════════════
+   CEO MESSAGE
+═══════════════════════════════════════════════════════════ */
+#message{padding:5.5rem 0;background:var(--bg);transition:background-color .3s ease}
+.msg-grid{display:grid;grid-template-columns:240px 1fr;gap:3.5rem;align-items:start;margin-top:2.5rem}
+.msg-avatar-wrap{position:sticky;top:calc(var(--nav-h) + 1.5rem)}
+.msg-avatar{
+  background:var(--gd);border:var(--bw) solid rgba(74,222,154,.2);
+  border-radius:6px;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:.75rem;padding:2.5rem 1.5rem;
+}
+.msg-avi{
+  width:5.5rem;height:5.5rem;border-radius:50%;
+  background:rgba(74,222,154,.1);border:var(--bw) solid rgba(74,222,154,.22);
+  display:flex;align-items:center;justify-content:center;margin-bottom:.25rem;
+}
+.msg-avi i{font-size:2.5rem;color:rgba(74,222,154,.45)}
+.msg-av-title{font-size:.62rem;color:rgba(74,222,154,.6);font-weight:700;text-transform:uppercase;letter-spacing:.1em;text-align:center;margin-bottom:.25rem}
+.msg-av-co{font-size:.8rem;font-weight:700;color:rgba(255,255,255,.55);text-align:center;line-height:1.4}
+.msg-quote{
+  font-size:clamp(1.05rem,2.2vw,1.375rem);font-weight:900;color:var(--t1);
+  line-height:1.5;position:relative;padding-left:1.25rem;margin-bottom:1.875rem;
+  transition:color .3s;
+}
+.msg-quote::before{
+  content:'';position:absolute;left:0;top:.1em;bottom:.1em;
+  width:3px;background:var(--mint);border-radius:2px;
+}
+.msg-text{font-size:.9rem;color:var(--t2);line-height:1.9;margin-bottom:1.25rem;transition:color .3s}
+.msg-text:last-of-type{margin-bottom:1.875rem}
+.msg-sig{
+  display:flex;align-items:center;gap:1rem;
+  padding-top:1.5rem;border-top:var(--bw) solid rgba(74,222,154,.12);
+}
+.msg-sig-bar{width:2.25rem;height:2px;background:var(--mint);border-radius:1px;flex-shrink:0}
+.msg-sig-role{font-size:.65rem;color:var(--mint);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.25rem}
+.msg-sig-name{font-size:.9375rem;font-weight:900;color:var(--t1);letter-spacing:.04em;transition:color .3s}
+
+/* ═══════════════════════════════════════════════════════════
    INFORMATION
 ═══════════════════════════════════════════════════════════ */
 #information{padding:5rem 0;background:var(--bg);transition:background-color .3s ease}
@@ -716,6 +792,12 @@ footer{background:var(--gk);padding:4rem 0 0}
   .eco-grid{grid-template-columns:1fr 1fr}
   .saf-grid{grid-template-columns:1fr}
   .job-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:2rem}
+  .msg-grid{grid-template-columns:1fr;gap:2rem}
+  .msg-avatar-wrap{position:static}
+  .msg-avatar{flex-direction:row;padding:1.25rem 1.5rem;gap:1.25rem}
+  .msg-avi{width:3.5rem;height:3.5rem;flex-shrink:0}
+  .msg-avi i{font-size:1.6rem}
 }
 @media(max-width:640px){
   .wrap{padding:0 1.125rem}
@@ -725,7 +807,7 @@ footer{background:var(--gk);padding:4rem 0 0}
   .svc-grid{grid-template-columns:1fr}
   .qm-card{flex:1 1 calc(50% - 1px)}
   .qm-card:nth-child(5){flex:1 1 100%}
-  #information,#services,#fleet,#ecology,#safety,#recruit{padding:3.5rem 0}
+  #information,#services,#fleet,#ecology,#safety,#recruit,#about,#message{padding:3.5rem 0}
   .eco-grid{grid-template-columns:1fr}
   .foot-nav{grid-template-columns:1fr 1fr;gap:1.5rem}
   .c-arrow{display:none}
@@ -763,11 +845,11 @@ footer{background:var(--gk);padding:4rem 0 0}
           <i class="ti ti-chevron-down" aria-hidden="true"></i>
         </a>
         <ul class="dd" role="menu">
-          <li><a href="#" role="menuitem"><span class="lang-jp">社長メッセージ</span><span class="lang-en">President's Message</span></a></li>
-          <li><a href="#" role="menuitem"><span class="lang-jp">経営理念</span><span class="lang-en">Philosophy</span></a></li>
-          <li><a href="#" role="menuitem"><span class="lang-jp">会社概要</span><span class="lang-en">Company Profile</span></a></li>
-          <li><a href="#" role="menuitem"><span class="lang-jp">沿革</span><span class="lang-en">History</span></a></li>
-          <li><a href="#" role="menuitem"><span class="lang-jp">事務所案内</span><span class="lang-en">Office Guide</span></a></li>
+          <li><a href="#message" role="menuitem"><span class="lang-jp">社長メッセージ</span><span class="lang-en">President's Message</span></a></li>
+          <li><a href="#about" role="menuitem"><span class="lang-jp">経営理念</span><span class="lang-en">Philosophy</span></a></li>
+          <li><a href="#about" role="menuitem"><span class="lang-jp">会社概要</span><span class="lang-en">Company Profile</span></a></li>
+          <li><a href="#about" role="menuitem"><span class="lang-jp">沿革</span><span class="lang-en">History</span></a></li>
+          <li><a href="#about" role="menuitem"><span class="lang-jp">事務所案内</span><span class="lang-en">Office Guide</span></a></li>
         </ul>
       </li>
       <li class="nav-item"><a href="#services"><span class="lang-jp">事業内容</span><span class="lang-en">Services</span></a></li>
@@ -821,11 +903,11 @@ footer{background:var(--gk);padding:4rem 0 0}
         <i class="ti ti-chevron-right" aria-hidden="true"></i>
       </a>
       <div class="mdd" id="mdd-1">
-        <a href="#"><span class="lang-jp">社長メッセージ</span><span class="lang-en">President's Message</span></a>
-        <a href="#"><span class="lang-jp">経営理念</span><span class="lang-en">Philosophy</span></a>
-        <a href="#"><span class="lang-jp">会社概要</span><span class="lang-en">Company Profile</span></a>
-        <a href="#"><span class="lang-jp">沿革</span><span class="lang-en">History</span></a>
-        <a href="#"><span class="lang-jp">事務所案内</span><span class="lang-en">Office Guide</span></a>
+        <a href="#message"><span class="lang-jp">社長メッセージ</span><span class="lang-en">President's Message</span></a>
+        <a href="#about"><span class="lang-jp">経営理念</span><span class="lang-en">Philosophy</span></a>
+        <a href="#about"><span class="lang-jp">会社概要</span><span class="lang-en">Company Profile</span></a>
+        <a href="#about"><span class="lang-jp">沿革</span><span class="lang-en">History</span></a>
+        <a href="#about"><span class="lang-jp">事務所案内</span><span class="lang-en">Office Guide</span></a>
       </div>
     </li>
     <li class="mi"><a href="#services"><span class="lang-jp">事業内容</span><span class="lang-en">Services</span></a></li>
@@ -976,6 +1058,175 @@ footer{background:var(--gk);padding:4rem 0 0}
         <span class="lang-jp">関東全域</span><span class="lang-en">All Kanto</span>
       </div>
       <div class="stat-label"><span class="lang-jp">対応エリア</span><span class="lang-en">Coverage Area</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ ABOUT ══════════════════════════════════════════════════ -->
+<section id="about" aria-labelledby="about-h2">
+  <div class="wrap">
+    <div class="sec-hd fade-up">
+      <div class="sec-ey">COMPANY</div>
+      <h2 class="sec-h2" id="about-h2">
+        <span class="lang-jp">会社概要</span><span class="lang-en">About SS LINE</span>
+      </h2>
+      <div class="sec-sub">
+        <span class="lang-jp">1998年の設立以来、千葉を拠点に関東全域の物流を支えています</span>
+        <span class="lang-en">Since 1998, supporting Kanto-wide logistics from our Chiba base</span>
+      </div>
+    </div>
+    <div class="about-grid">
+
+      <!-- Left: company profile table -->
+      <div class="about-profile fade-up">
+        <div class="about-profile-hd">
+          <i class="ti ti-building-factory" aria-hidden="true"></i>
+          <span class="lang-jp">会社情報</span><span class="lang-en">Company Profile</span>
+        </div>
+        <div class="about-row">
+          <span class="about-lbl lang-jp">商号</span>
+          <span class="about-lbl lang-en">Company Name</span>
+          <span class="about-val lang-jp">株式会社エスエスライン</span>
+          <span class="about-val lang-en">SS LINE Co., Ltd.</span>
+        </div>
+        <div class="about-row">
+          <span class="about-lbl lang-jp">設立</span>
+          <span class="about-lbl lang-en">Founded</span>
+          <span class="about-val lang-jp">1998年（平成10年）</span>
+          <span class="about-val lang-en">1998 (Heisei 10)</span>
+        </div>
+        <div class="about-row">
+          <span class="about-lbl lang-jp">所在地</span>
+          <span class="about-lbl lang-en">Location</span>
+          <span class="about-val lang-jp">千葉県千葉市</span>
+          <span class="about-val lang-en">Chiba City, Chiba Prefecture</span>
+        </div>
+        <div class="about-row">
+          <span class="about-lbl lang-jp">事業内容</span>
+          <span class="about-lbl lang-en">Business Type</span>
+          <span class="about-val lang-jp">一般区域貨物自動車運送事業</span>
+          <span class="about-val lang-en">General freight trucking services</span>
+        </div>
+        <div class="about-row">
+          <span class="about-lbl lang-jp">保有車両</span>
+          <span class="about-lbl lang-en">Fleet Size</span>
+          <span class="about-val lang-jp">35台（2t〜大型まで7車種）</span>
+          <span class="about-val lang-en">35 vehicles — 7 types (2t to large-class)</span>
+        </div>
+        <div class="about-row">
+          <span class="about-lbl lang-jp">対応エリア</span>
+          <span class="about-lbl lang-en">Service Area</span>
+          <span class="about-val lang-jp">関東一円（首都圏全域）</span>
+          <span class="about-val lang-en">Greater Kanto Region (all metropolitan areas)</span>
+        </div>
+        <div class="about-row">
+          <span class="about-lbl lang-jp">稼働体制</span>
+          <span class="about-lbl lang-en">Operation</span>
+          <span class="about-val lang-jp">365日・24時間対応</span>
+          <span class="about-val lang-en">365 days / 24-hour service</span>
+        </div>
+        <div class="about-row">
+          <span class="about-lbl lang-jp">許認可</span>
+          <span class="about-lbl lang-en">Licence</span>
+          <span class="about-val lang-jp">国土交通省 関東運輸局</span>
+          <span class="about-val lang-en">Kanto District Transport Bureau, MLIT</span>
+        </div>
+      </div>
+
+      <!-- Right: values -->
+      <div class="about-values">
+        <div class="about-value fade-up">
+          <div class="about-value-ico"><i class="ti ti-heart-handshake" aria-hidden="true"></i></div>
+          <div>
+            <div class="about-value-t lang-jp">お客様第一主義</div>
+            <div class="about-value-t lang-en">Customer First</div>
+            <div class="about-value-d lang-jp">お客様の荷物を自分の荷物と同じ気持ちで扱い、ご満足いただけるサービスを追求します。</div>
+            <div class="about-value-d lang-en">We handle every shipment as if it were our own — pursuing service that truly satisfies our customers.</div>
+          </div>
+        </div>
+        <div class="about-value fade-up">
+          <div class="about-value-ico"><i class="ti ti-shield-check" aria-hidden="true"></i></div>
+          <div>
+            <div class="about-value-t lang-jp">安全最優先</div>
+            <div class="about-value-t lang-en">Safety First</div>
+            <div class="about-value-d lang-jp">ドライバー教育とデジタル管理の徹底により、無事故・無違反の運行を継続しています。</div>
+            <div class="about-value-d lang-en">Through rigorous driver training and digital monitoring, we maintain accident-free and violation-free operations.</div>
+          </div>
+        </div>
+        <div class="about-value fade-up">
+          <div class="about-value-ico"><i class="ti ti-leaf" aria-hidden="true"></i></div>
+          <div>
+            <div class="about-value-t lang-jp">環境への責任</div>
+            <div class="about-value-t lang-en">Environmental Responsibility</div>
+            <div class="about-value-d lang-jp">エコドライブと最新車両への更新により、CO₂排出量の削減と持続可能な物流を推進します。</div>
+            <div class="about-value-d lang-en">Through eco-driving and fleet renewal, we actively reduce CO₂ emissions and promote sustainable logistics.</div>
+          </div>
+        </div>
+        <div class="about-value fade-up">
+          <div class="about-value-ico"><i class="ti ti-users" aria-hidden="true"></i></div>
+          <div>
+            <div class="about-value-t lang-jp">人財の育成</div>
+            <div class="about-value-t lang-en">People Development</div>
+            <div class="about-value-d lang-jp">働きやすい職場環境と継続的な研修制度で、プロドライバーとしての成長を全力でサポートします。</div>
+            <div class="about-value-d lang-en">We fully support our drivers' professional growth through a supportive workplace and continuous training programs.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ CEO MESSAGE ════════════════════════════════════════════ -->
+<section id="message" aria-labelledby="msg-h2">
+  <div class="wrap">
+    <div class="sec-hd fade-up">
+      <div class="sec-ey">MESSAGE</div>
+      <h2 class="sec-h2" id="msg-h2">
+        <span class="lang-jp">社長メッセージ</span><span class="lang-en">President's Message</span>
+      </h2>
+      <div class="sec-sub">
+        <span class="lang-jp">代表取締役社長より</span>
+        <span class="lang-en">From the Representative Director &amp; President</span>
+      </div>
+    </div>
+    <div class="msg-grid fade-up">
+
+      <!-- Avatar / ID card -->
+      <div class="msg-avatar-wrap">
+        <div class="msg-avatar">
+          <div class="msg-avi"><i class="ti ti-user" aria-hidden="true"></i></div>
+          <div>
+            <div class="msg-av-title lang-jp">代表取締役社長</div>
+            <div class="msg-av-title lang-en">Representative Director &amp; President</div>
+            <div class="msg-av-co lang-jp">株式会社エスエスライン</div>
+            <div class="msg-av-co lang-en">SS LINE Co., Ltd.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Message body -->
+      <div>
+        <p class="msg-quote lang-jp">「物流を通じて社会の動脈を支え続けることが、私たちの誇りです。」</p>
+        <p class="msg-quote lang-en">"Our pride is in continuously supporting the arteries of society through logistics."</p>
+
+        <p class="msg-text lang-jp">平素より格別のご愛顧を賜り、誠にありがとうございます。株式会社エスエスラインは、1998年の設立以来、千葉を拠点として関東全域の物流を支え続けてまいりました。創業から四半世紀以上にわたる歩みの中で、お客様からいただいた信頼こそが、私たちの最大の財産でございます。</p>
+        <p class="msg-text lang-jp">運送業を取り巻く環境は、デジタル化・環境規制・2024年問題など、大きな変革の時代を迎えています。こうした変化に対応するため、ドライバー一人ひとりの成長と働きやすい職場づくりに注力し、安全・確実・迅速な輸送サービスの向上に取り組んでまいります。</p>
+        <p class="msg-text lang-jp">「安心・安全・確実」という創業当初の理念を守りながら、時代の変化に柔軟に対応し、お客様と社会に貢献し続けることを、ここにお約束申し上げます。</p>
+
+        <p class="msg-text lang-en">Thank you sincerely for your continued support. Since our founding in 1998, SS LINE Co., Ltd. has been supporting logistics across the Greater Kanto region from our home base in Chiba. Over more than a quarter century, the trust placed in us by our customers has been our greatest asset.</p>
+        <p class="msg-text lang-en">The logistics industry is entering a period of major transformation — driven by digitalization, environmental regulations, and the 2024 labor reform. To meet these challenges, we are focusing on the growth of every individual driver and the creation of a supportive workplace, steadily improving our safe, reliable, and timely transportation services.</p>
+        <p class="msg-text lang-en">While upholding our founding principles of "safety, reliability, and certainty," we pledge to remain flexible in the face of change and continue contributing to our customers and to society.</p>
+
+        <div class="msg-sig">
+          <div class="msg-sig-bar" aria-hidden="true"></div>
+          <div>
+            <div class="msg-sig-role lang-jp">代表取締役社長 / 株式会社エスエスライン</div>
+            <div class="msg-sig-role lang-en">Representative Director &amp; President, SS LINE Co., Ltd.</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

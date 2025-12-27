@@ -856,6 +856,19 @@ footer{background:var(--gk);padding:4rem 0 0}
 .str-p{font-size:.83rem;color:var(--t3);line-height:1.7;transition:color .3s ease}
 @media(max-width:640px){ .str-grid{grid-template-columns:1fr} }
 
+/* ════ CERTIFICATIONS (認証・許認可) ══════════════════════════ */
+#certifications{padding:5rem 0;background:var(--bg-alt);transition:background-color .3s ease}
+.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:2.5rem}
+.cert-card{background:var(--bg);border:var(--bw) solid rgba(74,222,154,.14);border-radius:6px;padding:1.75rem 1.25rem;text-align:center;transition:background-color .3s ease,transform var(--ease),border-color var(--ease)}
+.cert-card:hover{transform:translateY(-3px);border-color:rgba(74,222,154,.4)}
+.cert-badge{width:64px;height:64px;margin:0 auto 1rem;border-radius:50%;background:var(--cat-bg);display:flex;align-items:center;justify-content:center;transition:background-color .3s ease}
+.cert-badge i{font-size:1.75rem;color:var(--mint)}
+.cert-h{font-size:.9rem;font-weight:800;color:var(--t1);margin-bottom:.4rem;letter-spacing:-.01em;transition:color .3s ease}
+.cert-p{font-size:.78rem;color:var(--t3);line-height:1.6;transition:color .3s ease}
+.cert-tag{display:inline-block;margin-top:.75rem;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mint);background:var(--cat-bg);padding:.25rem .6rem;border-radius:50px}
+@media(max-width:960px){ .cert-grid{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:640px){ .cert-grid{grid-template-columns:1fr} }
+
 @media(max-width:960px){
   .cf-grid{grid-template-columns:1fr;gap:2rem}
   .cf-grid .cf-form{order:-1}

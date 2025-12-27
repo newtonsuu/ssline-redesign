@@ -844,6 +844,18 @@ footer{background:var(--gk);padding:4rem 0 0}
   .hist-year{font-size:.85rem}
 }
 
+/* ════ STRENGTHS (選ばれる理由) ═══════════════════════════════ */
+#strengths{padding:5rem 0;background:var(--bg-alt);transition:background-color .3s ease}
+.str-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2.5rem}
+.str-card{position:relative;background:var(--bg);border:var(--bw) solid rgba(74,222,154,.12);border-radius:6px;padding:1.75rem;overflow:hidden;transition:background-color .3s ease,transform var(--ease),box-shadow var(--ease)}
+.str-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(10,61,46,.08)}
+.str-num{position:absolute;top:.9rem;right:1.25rem;font-size:2.5rem;font-weight:900;color:var(--mint);opacity:.14;line-height:1;letter-spacing:-.04em}
+.str-ico{width:44px;height:44px;border-radius:8px;background:var(--cat-bg);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;transition:background-color .3s ease}
+.str-ico i{font-size:1.35rem;color:var(--mint)}
+.str-h{font-size:1rem;font-weight:800;color:var(--t1);margin-bottom:.5rem;letter-spacing:-.02em;transition:color .3s ease}
+.str-p{font-size:.83rem;color:var(--t3);line-height:1.7;transition:color .3s ease}
+@media(max-width:640px){ .str-grid{grid-template-columns:1fr} }
+
 @media(max-width:960px){
   .cf-grid{grid-template-columns:1fr;gap:2rem}
   .cf-grid .cf-form{order:-1}

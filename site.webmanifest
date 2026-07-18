@@ -1,0 +1,19 @@
+{
+  "name": "株式会社エスエスライン / SS LINE",
+  "short_name": "SS LINE",
+  "description": "安心・安全・確実の物流を、千葉県佐倉市から関東全域へ。24時間365日対応の運送・物流会社。",
+  "lang": "ja",
+  "start_url": "/ssline-redesign/",
+  "scope": "/ssline-redesign/",
+  "display": "standalone",
+  "background_color": "#0a3d2e",
+  "theme_color": "#0a3d2e",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='96' fill='%230a3d2e'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' fill='%234ade9a' font-size='300' font-weight='900' font-family='sans-serif'>S</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
